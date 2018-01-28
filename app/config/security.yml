@@ -1,9 +1,10 @@
 # app/config/security.yml
 security:
     providers:
+        in_memory: { memory: ~ }
         database_users:
             entity: { class: Mairie\MairieBundle:Admin, property: username }
-       
+        
     encoders:
         Mairie\MairieBundle\Entity\Admin: bcrypt
            
@@ -11,19 +12,19 @@ security:
         dev:
             pattern:  ^/(_(profiler|wdt)|css|images|js)/
             security: false
-        login:
-            pattern:  ^/demo/secured/login$
-            security: false
-        secured_area:
-            pattern:  ^/
+        main: 
             anonymous: ~
+                
+        
             form_login:
-               login_path:  login
-               check_path:  login_check
-               use_referer: true
+               login_path: security_login_check
+               check_path: security_login_form
             logout:
-               path: /logout
-               target: /
+                # The route name the user can go to in order to logout
+                path: security_logout
+                # The name of the route to redirect to after logging out
+                target: homepage
+      
     access_control:
-      - { path: ^/login, roles: IS_AUTHENTICATED_ANONYMOUSLY }
-       #- { path: ^/mairie, roles: ROLE_ADMIN }
+    - { path: ^/login, roles: IS_AUTHENTICATED_ANONYMOUSLY }
+    - { path: ^/admin, roles: ROLE_USER }       

@@ -72,6 +72,7 @@ class Admin implements UserInterface
      * @Assert\Length(min=5)
      */
     private $password;
+    
 
     /**
      * @var string
@@ -84,7 +85,6 @@ class Admin implements UserInterface
      * @ORM\Column(type="string", length=50)
      */
     protected $role;
-
 
   
    

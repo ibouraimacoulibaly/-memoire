@@ -39,7 +39,7 @@ class Acte_de_naissanceType extends AbstractType
             'required'   => false,
             ))
         ->add('commune')
-        ->add('nomPere')
+        ->add('prenomPere')
         ->add('nomMere')
         ->add('prenomMere')
         ->add('prenomSo')

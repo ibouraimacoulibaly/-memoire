@@ -1,4 +1,5 @@
 
+{% extends "@MairieMairie//layout.html.twig" %}
 
 {% block body %}
     <h1>Acte_de_naissances list</h1>
@@ -15,7 +16,7 @@
                 <th>Region</th>
                 <th>Departement</th>
                 <th>Commune</th>
-                <th>Nompere</th>
+                <th>Prenompere</th>
                 <th>Nommere</th>
                 <th>Prenommere</th>
                 <th>Prenomso</th>
@@ -35,7 +36,7 @@
                 <td>{{ acte_de_naissance.region }}</td>
                 <td>{{ acte_de_naissance.departement }}</td>
                 <td>{{ acte_de_naissance.commune }}</td>
-                <td>{{ acte_de_naissance.nomPere }}</td>
+                <td>{{ acte_de_naissance.prenomPere }}</td>
                 <td>{{ acte_de_naissance.nomMere }}</td>
                 <td>{{ acte_de_naissance.prenomMere }}</td>
                 <td>{{ acte_de_naissance.prenomSo }}</td>

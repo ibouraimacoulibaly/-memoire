@@ -11,59 +11,50 @@ use Symfony\Component\HttpFoundation\Response;
 
 class SecurityController extends Controller
 {
-    const AUTHENTICATION_ERROR = \Symfony\Component\Security\Core\Security::AUTHENTICATION_ERROR;
-    const LAST_USERNAME = \Symfony\Component\Security\Core\Security::LAST_USERNAME;
+    
  
     /**
-     * @Route("/login", name="login")
+     * @Route("/login", name="security_login_form")
      * @param Request $request
      * @return Response
      */
-    public function loginAction(Request $request)
+    public function loginAction()
     {
+        
         $authenticationUtils = $this->get('security.authentication_utils');
         $error = $authenticationUtils->getLastAuthenticationError();
         $lastUsername = $authenticationUtils->getLastUsername();
-        if ($error) {
-        $this->addFlash('login','Error Login');
-        }
-	if (TRUE === $this->get('security.authorization_checker')->isGranted('ROLE_USER')) {
-        return $this->redirectToRoute('login');
-        }
-	if (TRUE === $this->get('security.authorization_checker')->isGranted('ROLE_ADMIN')) {
-        return $this->redirectToRoute('/admin');
-        } else {
-	return $this->render('@MairieMairie/Default/login.html.twig', array('last_username' => $lastUsername,
+        
+	return $this->render('@MairieMairie/Security/login.html.twig', array('last_username' => $lastUsername,
                                                                           'error'         => $error));
         }
-    }
+
     /**
-     * @Route("/admin", name="admin")
-     * @param Request $request
-     * @return Response
+     * This is the route the login form submits to.
+     *
+     * But, this will never be executed. Symfony will intercept this first
+     * and handle the login automatically. See form_login in app/config/security.yml
+     *
+     * @Route("/admin", name="security_login_check")
      */
-    public function adminAction()
+    public function loginCheckAction()
     {
-        if (FALSE === $this->get('security.authorization_checker')->isGranted('ROLE_ADMIN')) {
-        return $this->redirectToRoute('admin');
-        }
-//      if (!$this->get('security.authorization_checker')->isGranted('ROLE_USER')) {
-//      return $this->redirectToRoute('re_index');
-//      return new Response('', 500);
-//      }
-        else {
-        return $this->render('@MairieMairie/Default/login.html.twig');
-        }
+        return $this->render('@MairieMairie/Default/index.html.twig');
     }
+
     /**
-     * @Route("/login", name="login")
+     * This is the route the user can use to logout.
+     *
+     * But, this will never be executed. Symfony will intercept this first
+     * and handle the logout automatically. See logout in app/config/security.yml
+     *
+     * @Route("/logout", name="security_logout")
      */
     public function logoutAction()
     {
-	if ($this->get('security.token_storage')->getToken()->getUser()) {
-	$this->get('security.token_storage')->setToken(null);
-	$this->addFlash('logout','Logout');
-	return $this->redirectToRoute('login');
-	}
+        throw new \Exception('This should never be reached!');
     }
-}
+    }
+   
+    
+

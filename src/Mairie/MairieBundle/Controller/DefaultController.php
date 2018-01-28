@@ -4,6 +4,9 @@ namespace Mairie\MairieBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
+use Symfony\Component\Security\Http\Authentication\AuthenticationUtils;
+
+
 
 class DefaultController extends Controller
 {
@@ -14,12 +17,6 @@ class DefaultController extends Controller
     {
         return $this->render('@MairieMairie/Default/index.html.twig');
     }
-    /**
-     * @Route("/login")
-     */
-    public function loginAction()
-    {
-        return $this->render('@MairieMairie/Default/login.html.twig');
-    }
+   
 }
  

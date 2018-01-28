@@ -47,7 +47,7 @@ class Acte_de_naissance
     /**
      * @var \DateTime
      *
-     * @ORM\Column(name="date_naissance", type="datetime")
+     * @ORM\Column(name="date_naissance", type="string")
      */
     private $dateNaissance;
 
@@ -61,7 +61,7 @@ class Acte_de_naissance
     /**
      * @var string
      *@ORM\ManyToMany(targetEntity="region")
-     * @ORM\Column(name="region", type="string", length=255)
+     * @ORM\Column(name="region", type="integer")
      * @ORM\JoinColumn(name="region_id", referencedColumnName="id")
      */
     private $region;
@@ -89,9 +89,9 @@ class Acte_de_naissance
     /**
      * @var string
      *
-     * @ORM\Column(name="nom_pere", type="string", length=255)
+     * @ORM\Column(name="prenom_pere", type="string", length=255)
      */
-    private $nomPere;
+    private $prenomPere;
 
     /**
      * @var string
@@ -325,27 +325,27 @@ class Acte_de_naissance
     }
 
     /**
-     * Set nomPere.
+     * Set prenomPere.
      *
-     * @param string $nomPere
+     * @param string $prenomPere
      *
      * @return Acte_de_naissance
      */
-    public function setNomPere($nomPere)
+    public function setPrenomPere($prenomPere)
     {
-        $this->nomPere = $nomPere;
+        $this->prenomPere = $prenomPere;
 
         return $this;
     }
 
     /**
-     * Get nomPere.
+     * Get prenomPere.
      *
      * @return string
      */
-    public function getNomPere()
+    public function getPrenomPere()
     {
-        return $this->nomPere;
+        return $this->prenomPere;
     }
 
     /**

@@ -25,7 +25,7 @@ class AdminType extends AbstractType
         ->add('username', EmailType::class)
         ->add('sexe', ChoiceType::class, array(
             'choices'  => array(
-                '-------------' => '-----------',
+                'choisir votre' => '',
                 'Masculin' => 'Masculin',
                 'Feminin' => 'Feminin',
             ),
