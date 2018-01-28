@@ -1,0 +1,65 @@
+{% extends "@MairieMairie//layout.html.twig" %}
+
+{% block body %}
+    <h1>Naissances list</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Nom</th>
+                <th>Prenom</th>
+                <th>Numeroregistre</th>
+                <th>Region</th>
+                <th>Departement</th>
+                <th>Commune</th>
+                <th>Etatcivil</th>
+                <th>Datenaissance</th>
+                <th>Lieunaissance</th>
+                <th>Prenompere</th>
+                <th>Prenommere</th>
+                <th>Nommere</th>
+                <th>Prenomso</th>
+                <th>Nomso</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for naissance in naissances %}
+            <tr>
+                <td><a href="{{ path('naissance_show', { 'id': naissance.id }) }}">{{ naissance.id }}</a></td>
+                <td>{{ naissance.nom }}</td>
+                <td>{{ naissance.prenom }}</td>
+                <td>{{ naissance.numeroRegistre }}</td>
+                <td>{{ naissance.region }}</td>
+                <td>{{ naissance.departement }}</td>
+                <td>{{ naissance.commune }}</td>
+                <td>{{ naissance.etatCivil }}</td>
+                <td>{% if naissance.dateNaissance %}{{ naissance.dateNaissance|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>{{ naissance.lieuNaissance }}</td>
+                <td>{{ naissance.prenomPere }}</td>
+                <td>{{ naissance.prenomMere }}</td>
+                <td>{{ naissance.nomMere }}</td>
+                <td>{{ naissance.prenomSO }}</td>
+                <td>{{ naissance.nomSO }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('naissance_show', { 'id': naissance.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('naissance_edit', { 'id': naissance.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('naissance_new') }}">Create a new naissance</a>
+        </li>
+    </ul>
+{% endblock %}

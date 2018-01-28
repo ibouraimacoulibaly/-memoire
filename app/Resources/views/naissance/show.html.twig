@@ -1,0 +1,144 @@
+{% extends "@MairieMairie//layout.html.twig" %}
+
+{% block body %}
+ <style>
+ #div1{
+
+ }
+ #th1{
+     width:800px;
+ }
+ #th2{
+     width:500px;
+ }
+ #h4{
+     margin-left:500px;
+ }
+ th{
+     margin-left:50px;
+ }
+  </style>
+    <h1>Naissance</h1>
+
+    <table  border="1" class="container">
+    <thead>
+    
+    <tr>
+     <div id="div1">
+     <th id="th2">Region DE       :{{ naissance.region }}</br></br> Departement de {{ naissance.departement }}</br></br>
+     Commune DE  :{{ naissance.commune }}</th>
+       <th>REPUBLIQUE DU SENEGAL</br> un peuple-un but-une foi</br></br></br>ETAT CIVIL</br></br>CENTRE DE(1)</br>{{ naissance.commune }}</th>
+         
+         </div>
+     </thead> </table>
+     <table border="1" class="container">
+      <thead>
+    <tr>
+    <th id="th1">EXTRAIT DU REGISTRE DES ACTES DE NAISSANCE</br>Pour l'année (en lettre)      </br></br>N° dans le Registre (en lettre) </th>
+      <th> </br> AN  {% if naissance.dateNaissance %}{{ naissance.dateNaissance|date('Y-m-d H:i:s') }}{% endif %} </br></br>{{ naissance.numeroRegistre }}</br>(N° dans le registre en chiffre)</th>
+     <tr>
+     
+     </table>
+         <table border="1" class="container">
+          <thead>
+          <tr><th>
+          Le                                 mill neuf cent     </br> a  heures  minutes né(e)a {{ naissance.lieuNaissance }} (lieu de naissance)</br>
+           un enfant de sexe </br>
+           ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+           <p>PRENOM:{{ naissance.prenom }} <strong id="h4"> Nom DE FAMILLE:</strong>{{ naissance.nom }}</p>
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+             </br><p>de PRENOMS DU PERE:{{ naissance.prenomPere }} </p>
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+             </br><p>et de PRENOMS DE LA MERE:    {{ naissance.prenomMere  }} <strong id="h4"> Nom DE FAMILLE DE LA MERE:</strong>{{ naissance.nomMere }}</p>
+             <p>pays de naissance pour les naissances a l'étranger<p>
+         
+          </th></tr>
+          
+           </thead>
+          </table>
+         
+         
+         </table> 
+         
+         
+         
+         
+         <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ naissance.id }}</td>
+            </tr>
+            <tr>
+                <th>Nom</th>
+                <td>{{ naissance.nom }}</td>
+            </tr>
+            <tr>
+                <th>Prenom</th>
+                <td>{{ naissance.prenom }}</td>
+            </tr>
+            <tr>
+                <th>Numeroregistre</th>
+                <td>{{ naissance.numeroRegistre }}</td>
+            </tr>
+            <tr>
+                <th>Region</th>
+                <td>{{ naissance.region }}</td>
+            </tr>
+            <tr>
+                <th>Departement</th>
+                <td>{{ naissance.departement }}</td>
+            </tr>
+            <tr>
+                <th>Commune</th>
+                <td>{{ naissance.commune }}</td>
+            </tr>
+            <tr>
+                <th>Etatcivil</th>
+                <td>{{ naissance.etatCivil }}</td>
+            </tr>
+            <tr>
+                <th>Datenaissance</th>
+                <td>{% if naissance.dateNaissance %}{{ naissance.dateNaissance|date('Y-m-d H:i:s') }}{% endif %}</td>
+            </tr>
+            <tr>
+                <th>Lieunaissance</th>
+                <td>{{ naissance.lieuNaissance }}</td>
+            </tr>
+            <tr>
+                <th>Prenompere</th>
+                <td>{{ naissance.prenomPere }}</td>
+            </tr>
+            <tr>
+                <th>Prenommere</th>
+                <td>{{ naissance.prenomMere }}</td>
+            </tr>
+            <tr>
+                <th>Nommere</th>
+                <td>{{ naissance.nomMere }}</td>
+            </tr>
+            <tr>
+                <th>Prenomso</th>
+                <td>{{ naissance.prenomSO }}</td>
+            </tr>
+            <tr>
+                <th>Nomso</th>
+                <td>{{ naissance.nomSO }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('naissance_index') }}">Back to the list</a>
+        </li>
+        <li>
+            <a href="{{ path('naissance_edit', { 'id': naissance.id }) }}">Edit</a>
+        </li>
+        <li>
+            {{ form_start(delete_form) }}
+                <input type="submit" value="Delete">
+            {{ form_end(delete_form) }}
+        </li>
+    </ul>
+      <a class="btn btn-primary pull-right" id="btnPrint"><span class="glyphicon glyphicon-print"></span> imprimer</a>
+{% endblock %}

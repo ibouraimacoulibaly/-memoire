@@ -1,8 +1,7 @@
-
 {% extends "@MairieMairie//layout.html.twig" %}
 
 {% block body %}
-    <h1>Acte_de_naissance edit</h1>
+    <h1>Naissance edit</h1>
 
     {{ form_start(edit_form) }}
         {{ form_widget(edit_form) }}
@@ -11,7 +10,7 @@
 
     <ul>
         <li>
-            <a href="{{ path('acte_de_naissance_index') }}">Back to the list</a>
+            <a href="{{ path('naissance_index') }}">Back to the list</a>
         </li>
         <li>
             {{ form_start(delete_form) }}

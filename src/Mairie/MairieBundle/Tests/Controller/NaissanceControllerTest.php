@@ -4,7 +4,7 @@ namespace Mairie\MairieBundle\Tests\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 
-class Acte_de_naissanceControllerTest extends WebTestCase
+class NaissanceControllerTest extends WebTestCase
 {
     /*
     public function testCompleteScenario()
@@ -13,13 +13,13 @@ class Acte_de_naissanceControllerTest extends WebTestCase
         $client = static::createClient();
 
         // Create a new entry in the database
-        $crawler = $client->request('GET', '/acte_de_naissance/');
-        $this->assertEquals(200, $client->getResponse()->getStatusCode(), "Unexpected HTTP status code for GET /acte_de_naissance/");
+        $crawler = $client->request('GET', '/naissance/');
+        $this->assertEquals(200, $client->getResponse()->getStatusCode(), "Unexpected HTTP status code for GET /naissance/");
         $crawler = $client->click($crawler->selectLink('Create a new entry')->link());
 
         // Fill in the form and submit it
         $form = $crawler->selectButton('Create')->form(array(
-            'mairie_mairiebundle_acte_de_naissance[field_name]'  => 'Test',
+            'mairie_mairiebundle_naissance[field_name]'  => 'Test',
             // ... other fields to fill
         ));
 
@@ -33,7 +33,7 @@ class Acte_de_naissanceControllerTest extends WebTestCase
         $crawler = $client->click($crawler->selectLink('Edit')->link());
 
         $form = $crawler->selectButton('Update')->form(array(
-            'mairie_mairiebundle_acte_de_naissance[field_name]'  => 'Foo',
+            'mairie_mairiebundle_naissance[field_name]'  => 'Foo',
             // ... other fields to fill
         ));
 
