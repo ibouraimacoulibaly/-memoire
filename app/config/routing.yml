@@ -1,0 +1,8 @@
+mairie_mairie:
+    resource: "@MairieMairieBundle/Controller/"
+    type:     annotation
+    prefix:   /mairie
+
+app:
+    resource: '@AppBundle/Controller/'
+    type: annotation

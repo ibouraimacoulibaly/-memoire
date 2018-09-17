@@ -1,0 +1,47 @@
+
+
+{% block body %}
+    <h1>Etat_civils list</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Nom</th>
+                <th>Prenom</th>
+                <th>Addresseetatcivil</th>
+                <th>Telephone</th>
+                <th>Email</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for etat_civil in etat_civils %}
+            <tr>
+                <td><a href="{{ path('etat_civil_show', { 'id': etat_civil.id }) }}">{{ etat_civil.id }}</a></td>
+                <td>{{ etat_civil.nom }}</td>
+                <td>{{ etat_civil.prenom }}</td>
+                <td>{{ etat_civil.addresseEtatCivil }}</td>
+                <td>{{ etat_civil.telephone }}</td>
+                <td>{{ etat_civil.email }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('etat_civil_show', { 'id': etat_civil.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('etat_civil_edit', { 'id': etat_civil.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('etat_civil_new') }}">Create a new etat_civil</a>
+        </li>
+    </ul>
+{% endblock %}

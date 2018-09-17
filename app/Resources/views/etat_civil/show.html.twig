@@ -1,0 +1,49 @@
+
+
+{% block body %}
+
+    <h1>Etat_civil</h1>
+
+    <table>
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ etat_civil.id }}</td>
+            </tr>
+            <tr>
+                <th>Nom</th>
+                <td>{{ etat_civil.nom }}</td>
+            </tr>
+            <tr>
+                <th>Prenom</th>
+                <td>{{ etat_civil.prenom }}</td>
+            </tr>
+            <tr>
+                <th>Addresseetatcivil</th>
+                <td>{{ etat_civil.addresseEtatCivil }}</td>
+            </tr>
+            <tr>
+                <th>Telephone</th>
+                <td>{{ etat_civil.telephone }}</td>
+            </tr>
+            <tr>
+                <th>Email</th>
+                <td>{{ etat_civil.email }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('etat_civil_index') }}">Back to the list</a>
+        </li>
+        <li>
+            <a href="{{ path('etat_civil_edit', { 'id': etat_civil.id }) }}">Edit</a>
+        </li>
+        <li>
+            {{ form_start(delete_form) }}
+                <input type="submit" value="Delete">
+            {{ form_end(delete_form) }}
+        </li>
+    </ul>
+{% endblock %}
