@@ -1,0 +1,63 @@
+
+
+{% block body %}
+    <h1>Acte_de_naissances list</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Nom</th>
+                <th>Prenom</th>
+                <th>Sexe</th>
+                <th>Datenaissance</th>
+                <th>Lieunaissance</th>
+                <th>Region</th>
+                <th>Departement</th>
+                <th>Commune</th>
+                <th>Nompere</th>
+                <th>Nommere</th>
+                <th>Prenommere</th>
+                <th>Prenomso</th>
+                <th>Nomso</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for acte_de_naissance in acte_de_naissances %}
+            <tr>
+                <td><a href="{{ path('acte_de_naissance_show', { 'id': acte_de_naissance.id }) }}">{{ acte_de_naissance.id }}</a></td>
+                <td>{{ acte_de_naissance.nom }}</td>
+                <td>{{ acte_de_naissance.prenom }}</td>
+                <td>{{ acte_de_naissance.sexe }}</td>
+                <td>{% if acte_de_naissance.dateNaissance %}{{ acte_de_naissance.dateNaissance|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>{{ acte_de_naissance.lieuNaissance }}</td>
+                <td>{{ acte_de_naissance.region }}</td>
+                <td>{{ acte_de_naissance.departement }}</td>
+                <td>{{ acte_de_naissance.commune }}</td>
+                <td>{{ acte_de_naissance.nomPere }}</td>
+                <td>{{ acte_de_naissance.nomMere }}</td>
+                <td>{{ acte_de_naissance.prenomMere }}</td>
+                <td>{{ acte_de_naissance.prenomSo }}</td>
+                <td>{{ acte_de_naissance.nomSo }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('acte_de_naissance_show', { 'id': acte_de_naissance.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('acte_de_naissance_edit', { 'id': acte_de_naissance.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('acte_de_naissance_new') }}">Create a new acte_de_naissance</a>
+        </li>
+    </ul>
+{% endblock %}

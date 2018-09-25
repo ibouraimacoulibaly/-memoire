@@ -13,6 +13,7 @@
 
     <!-- Bootstrap core CSS -->
     <link href="{{ asset('template/vendor/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
+    
 
     <!-- Custom fonts for this template -->
     <link href="{{ asset('template/vendor/fontawesome-free/css/all.min.css') }}" rel="stylesheet" type="text/css">
@@ -28,8 +29,8 @@
 
 <body id="page-top">
 
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-    <a class="navbar-brand" href="#">Etat civil sénégal</a>
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+    <a class="navbar-brand" id="etat" href="#">Etat civil sénégal</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor02" aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
@@ -212,6 +213,12 @@
     }
     .payments {
         font-size: 1.5em;
+    }
+    a{
+       font-size: 18px;
+    }
+    #etat{
+        font-size: 28px;
     }
 </style>
 

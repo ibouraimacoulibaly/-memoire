@@ -1,10 +1,24 @@
 
 
 {% block body %}
+<link rel="stylesheet" href="{{ asset('template/bootstrap.min.css') }}" />
+<link rel="stylesheet" href="{{ asset('template/bootstrap.css') }}" />
+ <style type="text/css"> 
+ #list{
+     margin-left: 400px;
+ }
+ #delete{
+     margin-left: 400px;
+ }
+ #h5{
+     margin-left: 400px;
+ }
+ </style>
+<div class="container">
 
-    <h1>Etat_civil</h1>
+    <h5 id="h5">Etat_civil</h5>
 
-    <table>
+    <table class="table table-striped table-hover">
         <tbody>
             <tr>
                 <th>Id</th>
@@ -15,8 +29,8 @@
                 <td>{{ etat_civil.nom }}</td>
             </tr>
             <tr>
-                <th>Prenom</th>
-                <td>{{ etat_civil.prenom }}</td>
+                <th>code acess</th>
+                <td>{{ etat_civil.codeAccess }}</td>
             </tr>
             <tr>
                 <th>Addresseetatcivil</th>
@@ -31,19 +45,17 @@
                 <td>{{ etat_civil.email }}</td>
             </tr>
         </tbody>
-    </table>
-
-    <ul>
-        <li>
-            <a href="{{ path('etat_civil_index') }}">Back to the list</a>
-        </li>
-        <li>
-            <a href="{{ path('etat_civil_edit', { 'id': etat_civil.id }) }}">Edit</a>
-        </li>
-        <li>
+    
+<td>
+   
+            <a id="list" class="btn btn-primary" href="{{ path('etat_civil_index') }}">Back to the list</a>
+        
+            <a class="btn btn-success" href="{{ path('etat_civil_edit', { 'id': etat_civil.id }) }}">Edit</a>
+       </td>
+       </table>
             {{ form_start(delete_form) }}
-                <input type="submit" value="Delete">
+                <input id="delete" class="btn btn-danger" type="submit" value="Delete">
             {{ form_end(delete_form) }}
-        </li>
-    </ul>
+     
+    </div>
 {% endblock %}

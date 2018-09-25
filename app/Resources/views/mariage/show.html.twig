@@ -1,0 +1,76 @@
+
+
+{% block body %}
+    <h1>Mariage</h1>
+
+    <table>
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ mariage.id }}</td>
+            </tr>
+            <tr>
+                <th>Nomepoux</th>
+                <td>{{ mariage.nomEpoux }}</td>
+            </tr>
+            <tr>
+                <th>Prenomepoux</th>
+                <td>{{ mariage.prenomEpoux }}</td>
+            </tr>
+            <tr>
+                <th>Datenaissanceepoux</th>
+                <td>{% if mariage.dateNaissanceEpoux %}{{ mariage.dateNaissanceEpoux|date('Y-m-d H:i:s') }}{% endif %}</td>
+            </tr>
+            <tr>
+                <th>Lieunaissanceepoux</th>
+                <td>{{ mariage.lieuNaissanceEpoux }}</td>
+            </tr>
+            <tr>
+                <th>Addresseepoux</th>
+                <td>{{ mariage.addresseEpoux }}</td>
+            </tr>
+            <tr>
+                <th>Nomepouse</th>
+                <td>{{ mariage.nomEpouse }}</td>
+            </tr>
+            <tr>
+                <th>Prenomepouse</th>
+                <td>{{ mariage.prenomEpouse }}</td>
+            </tr>
+            <tr>
+                <th>Datenaissanceepouse</th>
+                <td>{% if mariage.dateNaissanceEpouse %}{{ mariage.dateNaissanceEpouse|date('Y-m-d H:i:s') }}{% endif %}</td>
+            </tr>
+            <tr>
+                <th>Lieunaissanceepouse</th>
+                <td>{{ mariage.lieuNaissanceEpouse }}</td>
+            </tr>
+            <tr>
+                <th>Addresseepouse</th>
+                <td>{{ mariage.addresseEpouse }}</td>
+            </tr>
+            <tr>
+                <th>Datemariage</th>
+                <td>{% if mariage.dateMariage %}{{ mariage.dateMariage|date('Y-m-d H:i:s') }}{% endif %}</td>
+            </tr>
+            <tr>
+                <th>Lieumariage</th>
+                <td>{{ mariage.lieuMariage }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('mariage_index') }}">Back to the list</a>
+        </li>
+        <li>
+            <a href="{{ path('mariage_edit', { 'id': mariage.id }) }}">Edit</a>
+        </li>
+        <li>
+            {{ form_start(delete_form) }}
+                <input type="submit" value="Delete">
+            {{ form_end(delete_form) }}
+        </li>
+    </ul>
+{% endblock %}

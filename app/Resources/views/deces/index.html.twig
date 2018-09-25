@@ -1,0 +1,47 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Deces list</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Nomdeces</th>
+                <th>Prenomdeces</th>
+                <th>Lieudeces</th>
+                <th>Datedeces</th>
+                <th>Age</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for dece in deces %}
+            <tr>
+                <td><a href="{{ path('deces_show', { 'id': dece.id }) }}">{{ dece.id }}</a></td>
+                <td>{{ dece.nomDeces }}</td>
+                <td>{{ dece.prenomDeces }}</td>
+                <td>{{ dece.lieuDeces }}</td>
+                <td>{% if dece.dateDeces %}{{ dece.dateDeces|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>{{ dece.age }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('deces_show', { 'id': dece.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('deces_edit', { 'id': dece.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('deces_new') }}">Create a new dece</a>
+        </li>
+    </ul>
+{% endblock %}

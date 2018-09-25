@@ -14,4 +14,12 @@ class DefaultController extends Controller
     {
         return $this->render('@MairieMairie/Default/index.html.twig');
     }
+    /**
+     * @Route("/login")
+     */
+    public function loginAction()
+    {
+        return $this->render('@MairieMairie/Default/login.html.twig');
+    }
 }
+ 

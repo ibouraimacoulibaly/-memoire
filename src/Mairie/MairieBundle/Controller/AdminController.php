@@ -7,6 +7,12 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
+use Symfony\Component\Security\Core\Encoder\BCryptPasswordEncoder;
+use Mairie\MairieBundle\Controller\ObjectManager;
+
+
+
 
 /**
  * Admin controller.
@@ -37,17 +43,25 @@ class AdminController extends Controller
      *
      * @Route("/new", name="admin_new")
      * @Method({"GET", "POST"})
+     * @param Request $request
      */
     public function newAction(Request $request)
     {
-        $admin = new Admin();
-        $form = $this->createForm('Mairie\MairieBundle\Form\AdminType', $admin);
+        
+   
+    $admin = new Admin();
+    
+      $form = $this->createForm('Mairie\MairieBundle\Form\AdminType', $admin);
+      
         $form->handleRequest($request);
-
+        
         if ($form->isSubmitted() && $form->isValid()) {
+            
+           
             $em = $this->getDoctrine()->getManager();
             $em->persist($admin);
             $em->flush();
+
 
             return $this->redirectToRoute('admin_show', array('id' => $admin->getId()));
         }

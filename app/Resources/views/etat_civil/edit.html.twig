@@ -1,11 +1,99 @@
 
 
 {% block body %}
-    <h1>Etat_civil edit</h1>
+<nav class="navbar navbar-inverse">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-2">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#">Etat Civil au sénégal</a>
+            </div>
 
-    {{ form_start(edit_form) }}
-        {{ form_widget(edit_form) }}
-        <input type="submit" value="Edit" />
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-2">
+                <ul class="nav navbar-nav">
+                    <li class="active"><a href="#">Home <span class="sr-only">(current)</span></a></li>
+                    <li><a href="#">adminitrateur</a></li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Dropdown <span class="caret"></span></a>
+                        <ul class="dropdown-menu" role="menu">
+                            <li><a href="#">Action</a></li>
+                            <li><a href="#">Another action</a></li>
+                            <li><a href="#">Something else here</a></li>
+                            <li class="divider"></li>
+                            <li><a href="#">Separated link</a></li>
+                            <li class="divider"></li>
+                            <li><a href="#">One more separated link</a></li>
+                        </ul>
+                    </li>
+                </ul>
+                <form class="navbar-form navbar-left" role="search">
+                    <div class="form-group">
+                        <input type="text" class="form-control" placeholder="Search">
+                    </div>
+                    <button type="submit" class="btn btn-default">recherche</button>
+                </form>
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="#">Link</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+<style type="text/css">
+    h5{
+        text-align: center;
+
+    }
+    #container{width: 500px;
+    background-color: #BAC1C8;
+    }
+    #create{
+        margin-left: 100px;
+    }
+    #list{
+        margin-left: 100px;
+    }
+</style>
+
+<link rel="stylesheet" href="{{ asset('template/bootstrap.min.css') }}" />
+<link rel="stylesheet" href="{{ asset('template/bootstrap.css') }}" />
+
+    <h5>Etat_civil edit</h5>
+<div id="container" class="container">
+    {{ form_start(edit_form, {'attr': { 'novalidate': 'novalidate'}})  }}
+    <div class="form-group">
+        {{ form_label(edit_form.nom) }}
+        {{ form_errors(edit_form.nom) }}
+        {{ form_widget(edit_form.nom, {'attr': { 'class': 'form-control'}}) }}
+    </div>
+
+     <div class="form-group">
+        {{ form_label(edit_form.codeAccess) }}
+        {{ form_errors(edit_form.codeAccess) }}
+        {{ form_widget(edit_form.codeAccess, {'attr': { 'class': 'form-control'}}) }}
+    </div>
+
+      <div class="form-group">
+        {{ form_label(edit_form.addresseEtatCivil) }}
+        {{ form_errors(edit_form.addresseEtatCivil) }}
+        {{ form_widget(edit_form.addresseEtatCivil, {'attr': { 'class': 'form-control'}}) }}
+    </div>
+ <div class="form-group">
+        {{ form_label(edit_form.telephone) }}
+        {{ form_errors(edit_form.telephone) }}
+        {{ form_widget(edit_form.telephone, {'attr': { 'class': 'form-control'}}) }}
+    </div>
+     <div class="form-group">
+        {{ form_label(edit_form.email) }}
+        {{ form_errors(edit_form.email) }}
+        {{ form_widget(edit_form.email, {'attr': { 'class': 'form-control'}}) }}
+    </div>
+       
+        <input class="btn btn-success" type="submit" value="Edit" />
     {{ form_end(edit_form) }}
 
     <ul>
@@ -14,8 +102,9 @@
         </li>
         <li>
             {{ form_start(delete_form) }}
-                <input type="submit" value="Delete">
+                <input class="btn btn-danger" type="submit" value="Delete">
             {{ form_end(delete_form) }}
         </li>
     </ul>
+    </div>
 {% endblock %}

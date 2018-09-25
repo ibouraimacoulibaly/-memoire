@@ -1,8 +1,9 @@
 <link rel="stylesheet" href="{{ asset('template/bootstrap.min.css') }}" />
 <link rel="stylesheet" href="{{ asset('template/bootstrap.css') }}" />
 
+
 {% block body %}
-    <nav class="navbar navbar-inverse">
+    <nav class="navbar navbar-default">
         <div class="container-fluid">
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-2">
@@ -48,16 +49,16 @@
 
     {{ form_start(edit_form) }}
         {{ form_widget(edit_form) }}
-        <input type="submit" value="Edit" />
+        <input class="btn btn-success" type="submit" value="Edit" />
     {{ form_end(edit_form) }}
 
     <ul>
         <li>
-            <a href="{{ path('admin_index') }}">Back to the list</a>
+            <a class="btn btn-default" href="{{ path('admin_index') }}">Back to the list</a>
         </li>
         <li>
             {{ form_start(delete_form) }}
-                <input type="submit" value="Delete">
+                <input class="btn btn-danger" type="submit" value="Delete">
             {{ form_end(delete_form) }}
         </li>
     </ul>

@@ -6,9 +6,12 @@
         text-align: center;
 
     }
+    #td{
+        font-size: 25px;
+    }
 </style>
 {% block body %}
-    <nav class="navbar navbar-inverse">
+    <nav class="navbar navbar-default">
         <div class="container-fluid">
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-2">
@@ -23,10 +26,11 @@
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-2">
                 <ul class="nav navbar-nav">
                     <li class="active"><a href="#">Home <span class="sr-only">(current)</span></a></li>
-                    <li><a href="#">adminitrateur</a></li>
+                    <li><a href="">adminitrateur</a></li>
                     <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Dropdown <span class="caret"></span></a>
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="true">Dropdown <span class="caret"></span></a>
                         <ul class="dropdown-menu" role="menu">
+                        
                             <li><a href="#">Action</a></li>
                             <li><a href="#">Another action</a></li>
                             <li><a href="#">Something else here</a></li>
@@ -43,8 +47,10 @@
                     </div>
                     <button type="submit" class="btn btn-default">recherche</button>
                 </form>
+               
                 <ul class="nav navbar-nav navbar-right">
-                    <li><a href="#">Link</a></li>
+                 <li class="fa fa-user"><a href="">Deconnexion</a></li>
+                    <li><a id="td" href="#">TDSI</a></li>
                 </ul>
             </div>
         </div>
@@ -62,6 +68,7 @@
                 <th>Username</th>
                 <th>Password</th>
                 <th>Idetatcivil</th>
+                <th>sexe</th>
                 <th>Actions</th>
             </tr>
         </thead>
@@ -74,6 +81,7 @@
                 <td>{{ admin.username }}</td>
                 <td>{{ admin.password }}</td>
                 <td>{{ admin.idEtatCivil }}</td>
+                 <td>{{ admin.sexe}}</td>
                 <td>
 
                         <a class="btn btn-primary" href="{{ path('admin_show', { 'id': admin.id }) }}">show</a>
@@ -81,6 +89,7 @@
 
                         <a class="btn btn-success" href="{{ path('admin_edit', { 'id': admin.id }) }}">edit</a>
 
+                        <a class="btn btn-danger" href="{{ path('admin_edit', { 'id': admin.id }) }}">delete</a>
 
                 </td>
             </tr>
@@ -90,7 +99,7 @@
 
     <ul>
         <li>
-            <a href="{{ path('admin_new') }}">Create a new admin</a>
+            <a class="btn btn-default" href="{{ path('admin_new') }}">Create a new admin</a>
         </li>
     </ul>
         </div>

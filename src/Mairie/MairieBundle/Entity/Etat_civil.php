@@ -34,7 +34,7 @@ class Etat_civil
      *
      * @ORM\Column(name="addresse_etat_civil", type="string", length=255)
      */
-    private $addresseEtatCivil;
+    private $addresseEtatCivil; 
 
     /**
      * @var string
@@ -49,6 +49,19 @@ class Etat_civil
      * @ORM\Column(name="email", type="string", length=255)
      */
     private $email;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="code_access", type="string", length=255)
+     */
+    private $code_access;
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="password", type="string", length=255)
+     */
+    private $password;
 
 
     /**
@@ -157,5 +170,52 @@ class Etat_civil
     {
         return $this->email;
     }
-}
 
+    /**
+     * Set codeAccess.
+     *
+     * @param string $codeAccess
+     *
+     * @return Etat_civil
+     */
+    public function setCodeAccess($codeAccess)
+    {
+        $this->code_access = $codeAccess;
+
+        return $this;
+    }
+
+    /**
+     * Get codeAccess.
+     *
+     * @return string
+     */
+    public function getCodeAccess()
+    {
+        return $this->code_access;
+    }
+
+    /**
+     * Set password.
+     *
+     * @param string $password
+     *
+     * @return Etat_civil
+     */
+    public function setPassword($password)
+    {
+        $this->password = $password;
+
+        return $this;
+    }
+
+    /**
+     * Get password.
+     *
+     * @return string
+     */
+    public function getPassword()
+    {
+        return $this->password;
+    }
+}

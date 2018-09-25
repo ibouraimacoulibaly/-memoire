@@ -5,6 +5,7 @@ namespace Mairie\MairieBundle\Form;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Component\Form\Extension\Core\Type\EmailType;
 
 class Etat_civilType extends AbstractType
 {
@@ -13,7 +14,13 @@ class Etat_civilType extends AbstractType
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder->add('nom')->add('addresseEtatCivil')->add('telephone')->add('email');
+        $builder
+        ->add('nom')
+        ->add('addresseEtatCivil')
+        ->add('telephone')
+        ->add('email', EmailType::class)
+        ->add('codeAccess');
+        
     }/**
      * {@inheritdoc}
      */

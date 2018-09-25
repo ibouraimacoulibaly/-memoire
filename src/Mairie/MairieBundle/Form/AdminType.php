@@ -9,6 +9,8 @@ use Symfony\Component\Form\Extension\Core\Type\EmailType;
 use Symfony\Component\Form\Extension\Core\Type\PasswordType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\RepeatedType;
+use Symfony\Component\Security\Core\Encoder\BCryptPasswordEncoder;
+use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 
 
 class AdminType extends AbstractType
@@ -21,13 +23,21 @@ class AdminType extends AbstractType
         $builder->add('nom', TextType::class)
         ->add('prenom', TextType::class)
         ->add('username', EmailType::class)
-            ->add('password', RepeatedType::class, array(
+        ->add('sexe', ChoiceType::class, array(
+            'choices'  => array(
+                '-------------' => '-----------',
+                'Masculin' => 'Masculin',
+                'Feminin' => 'Feminin',
+            ),
+        ))
+        ->add('password', RepeatedType::class, array(
                 'type' => PasswordType::class,
                 'first_options'  => array('label' => 'Password'),
-                'second_options' => array('label' => 'Repeat Password'),
-            ))
+                'second_options' => array('label' => 'confirmer'),
+                'attr' => array('class' => 'form-control'),))
         ->add('idEtatCivil',TextType::class);
-    }/**
+    }
+    /**
      * {@inheritdoc}
      */
     public function configureOptions(OptionsResolver $resolver)
