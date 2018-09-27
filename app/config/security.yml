@@ -1,19 +1,12 @@
 # app/config/security.yml
 security:
     providers:
-        in_memory:
-            memory:
-                users:
-                    username:
-                        password: $2y$12$UMRq6nCYrRMVfVoMGdqjQ.jbPgrIvlFYBUy20BKfx6.xuAiAF9ssi
-                        roles: ROLE_USER
-                    test:
-                        password: $2y$12$UMRq6nCYrRMVfVoMGdqjQ.jbPgrIvlFYBUy20BKfx6.xuAiAF9ssi
-                        roles: ROLE_ADMIN
+        database_users:
+            entity: { class: Mairie\MairieBundle:Admin, property: username }
+       
     encoders:
-        Symfony\Component\Security\Core\User\User:
-            algorithm: bcrypt
-            cost: 12
+        Mairie\MairieBundle\Entity\Admin: bcrypt
+           
     firewalls:
         dev:
             pattern:  ^/(_(profiler|wdt)|css|images|js)/

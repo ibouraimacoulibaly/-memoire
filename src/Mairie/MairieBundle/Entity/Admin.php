@@ -69,7 +69,7 @@ class Admin implements UserInterface
      * @var string
      *
      * @ORM\Column(name="password", type="text")
-     * @Assert\Length(min=4)
+     * @Assert\Length(min=5)
      */
     private $password;
 
@@ -79,6 +79,12 @@ class Admin implements UserInterface
      * @ORM\Column(name="id_etat_civil", type="string", length=255)
      */
     private $idEtatCivil;
+
+    /**
+     * @ORM\Column(type="string", length=50)
+     */
+    protected $role;
+
 
   
    
@@ -214,10 +220,20 @@ class Admin implements UserInterface
    public function getSalt(){
 
    }
+   public function getRole()
+   {
+       return $this->role;
+   }
 
-    public function getRoles(){
-        return ['ROLE_ADMIN'];
-    }
+   public function setRole($role = null)
+   {
+       $this->role = $role;
+   }
+
+   public function getRoles()
+   {
+       return [$this->getRole()];
+   }
    
     
 

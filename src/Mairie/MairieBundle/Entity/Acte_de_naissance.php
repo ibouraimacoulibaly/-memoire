@@ -1,7 +1,9 @@
 <?php
 
 namespace Mairie\MairieBundle\Entity;
-
+use Mairie\MairieBundle\Entity\region;
+use Mairie\MairieBundle\Entity\Acte_de_naissance;
+use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -58,10 +60,17 @@ class Acte_de_naissance
 
     /**
      * @var string
-     *
+     *@ORM\ManyToMany(targetEntity="region")
      * @ORM\Column(name="region", type="string", length=255)
+     * @ORM\JoinColumn(name="region_id", referencedColumnName="id")
      */
     private $region;
+    
+   public function __construct()
+    {
+        $this->region = new ArrayCollection();
+    }
+
 
     /**
      * @var string
@@ -434,4 +443,5 @@ class Acte_de_naissance
     {
         return $this->nomSo;
     }
+  
 }

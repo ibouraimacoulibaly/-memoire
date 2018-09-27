@@ -5,7 +5,9 @@ namespace Mairie\MairieBundle\Controller;
 use Mairie\MairieBundle\Entity\Acte_de_naissance;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;use Symfony\Component\HttpFoundation\Request;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
+use Symfony\Component\HttpFoundation\Request;
+
 
 /**
  * Acte_de_naissance controller.

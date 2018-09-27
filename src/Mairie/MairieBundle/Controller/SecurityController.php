@@ -28,7 +28,7 @@ class SecurityController extends Controller
         $this->addFlash('login','Error Login');
         }
 	if (TRUE === $this->get('security.authorization_checker')->isGranted('ROLE_USER')) {
-        return $this->redirectToRoute('/login');
+        return $this->redirectToRoute('login');
         }
 	if (TRUE === $this->get('security.authorization_checker')->isGranted('ROLE_ADMIN')) {
         return $this->redirectToRoute('/admin');

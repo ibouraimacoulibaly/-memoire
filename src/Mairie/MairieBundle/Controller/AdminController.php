@@ -56,12 +56,15 @@ class AdminController extends Controller
         $form->handleRequest($request);
         
         if ($form->isSubmitted() && $form->isValid()) {
-            
+            $encoder = $this->get('security.password_encoder');
+            $password = $encoder->encodePassword($admin, $admin->getPassword());
+            $admin->setPassword($password);
+            $admin->setRole('ROLE_USER');
            
             $em = $this->getDoctrine()->getManager();
             $em->persist($admin);
             $em->flush();
-
+            return $this->redirectToRoute('login');
 
             return $this->redirectToRoute('admin_show', array('id' => $admin->getId()));
         }

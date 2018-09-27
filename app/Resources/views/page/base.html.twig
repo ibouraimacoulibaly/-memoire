@@ -1,15 +1,6 @@
 <link rel="stylesheet" href="{{ asset('template/bootstrap.min.css') }}" />
 <link rel="stylesheet" href="{{ asset('template/bootstrap.css') }}" />
 
-<style type="text/css">
-    h3{
-        text-align: center;
-
-    }
-    #td{
-        font-size: 25px;
-    }
-</style>
 {% block body %}
     <nav class="navbar navbar-default">
         <div class="container-fluid">
@@ -55,52 +46,4 @@
             </div>
         </div>
     </nav>
-
-    <div>
-    <h3>Admins list</h3>
-
-    <table class="table table-striped table-hover">
-        <thead>
-            <tr>
-                <th>Id</th>
-                <th>Nom</th>
-                <th>Prenom</th>
-                <th>Username</th>
-                <th>Password</th>
-                <th>Idetatcivil</th>
-                <th>sexe</th>
-                <th>Actions</th>
-            </tr>
-        </thead>
-        <tbody>
-        {% for admin in admins %}
-            <tr>
-                <td><a href="{{ path('admin_show', { 'id': admin.id }) }}">{{ admin.id }}</a></td>
-                <td>{{ admin.nom }}</td>
-                <td>{{ admin.prenom }}</td>
-                <td>{{ admin.username }}</td>
-                <td>{{ admin.password }}</td>
-                <td>{{ admin.idEtatCivil }}</td>
-                 <td>{{ admin.sexe}}</td>
-                <td>
-
-                        <a class="btn btn-primary" href="{{ path('admin_show', { 'id': admin.id }) }}">show</a>
-
-
-                        <a class="btn btn-success" href="{{ path('admin_edit', { 'id': admin.id }) }}">edit</a>
-
-                        <a class="btn btn-danger" href="{{ path('admin_edit', { 'id': admin.id }) }}">delete</a>
-
-                </td>
-            </tr>
-        {% endfor %}
-        </tbody>
-    </table>
-
-    <ul>
-        <li>
-            <a class="btn btn-default" href="{{ path('admin_new') }}">Create a new admin</a>
-        </li>
-    </ul>
-        </div>
-{% endblock %}
+    {% endblock %}
