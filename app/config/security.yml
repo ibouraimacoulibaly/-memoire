@@ -1,9 +1,11 @@
 # app/config/security.yml
 security:
     providers:
-        
-            database_users:
-            entity: { class: Mairie\MairieBundle:Admin, property: username }
+        our_db_provider:
+            entity:
+                class:  Mairie\MairieBundle:Admin
+                property: username
+   
         
     encoders:
         Mairie\MairieBundle\Entity\Admin: bcrypt
@@ -14,9 +16,7 @@ security:
         dev:
             pattern:  ^/(_(profiler|wdt)|css|images|js)/
             security: false
-        main:
-            anonymous: ~
-            provider: security.providers.database_users
+        
         
         secured_area:
             pattern:  ^/
