@@ -11,7 +11,7 @@ use Symfony\Component\Security\Http\Authentication\AuthenticationUtils;
 class DefaultController extends Controller
 {
     /**
-     * @Route("/")
+     * @Route("/", name="welcome")
      */
     public function indexAction()
     {

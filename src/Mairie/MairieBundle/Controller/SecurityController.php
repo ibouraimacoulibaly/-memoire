@@ -1,60 +1,45 @@
 <?php
-
+ 
 namespace Mairie\MairieBundle\Controller;
+ 
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
-
-
-
+ 
 class SecurityController extends Controller
 {
-    
+ 
+    const AUTHENTICATION_ERROR = \Symfony\Component\Security\Core\Security::AUTHENTICATION_ERROR;
+    const LAST_USERNAME = \Symfony\Component\Security\Core\Security::LAST_USERNAME;
  
     /**
-     * @Route("/login", name="security_login_form")
+     * @Route("/login", name="login")
      * @param Request $request
      * @return Response
      */
-    public function loginAction()
+    public function loginAction(Request $request)
     {
-        
-        $authenticationUtils = $this->get('security.authentication_utils');
-        $error = $authenticationUtils->getLastAuthenticationError();
-        $lastUsername = $authenticationUtils->getLastUsername();
-        
-	return $this->render('@MairieMairie/Security/login.html.twig', array('last_username' => $lastUsername,
-                                                                          'error'         => $error));
+        $session = $request->getSession();
+ 
+        // get the login error if there is one
+        if ($request->attributes->has(self::AUTHENTICATION_ERROR)) {
+            $error = $request->attributes->get(
+                self::AUTHENTICATION_ERROR
+            );
+        } else {
+            $error = $session->get(self::AUTHENTICATION_ERROR);
+            $session->remove(self::AUTHENTICATION_ERROR);
         }
-
-    /**
-     * This is the route the login form submits to.
-     *
-     * But, this will never be executed. Symfony will intercept this first
-     * and handle the login automatically. See form_login in app/config/security.yml
-     *
-     * @Route("/admin", name="security_login_check")
-     */
-    public function loginCheckAction()
-    {
-        return $this->render('@MairieMairie/Default/index.html.twig');
+ 
+        return $this->render('@MairieMairie/Security/login.html.twig',
+            array(
+                // last username entered by the user
+                'last_username' => $session->get(self::LAST_USERNAME),
+                'error'         => $error,
+                // ...
+            )
+        );
     }
-
-    /**
-     * This is the route the user can use to logout.
-     *
-     * But, this will never be executed. Symfony will intercept this first
-     * and handle the logout automatically. See logout in app/config/security.yml
-     *
-     * @Route("/logout", name="security_logout")
-     */
-    public function logoutAction()
-    {
-        throw new \Exception('This should never be reached!');
-    }
-    }
-   
-    
-
+}

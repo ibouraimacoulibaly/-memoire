@@ -7,3 +7,8 @@ app:
     resource: '@AppBundle/Controller/'
     type: annotation
     
+login_check:
+    path:   /secured_area/login_check
+     
+logout:
+    path:   /secured_area/logout
