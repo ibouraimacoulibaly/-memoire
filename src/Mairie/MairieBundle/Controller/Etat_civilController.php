@@ -3,9 +3,12 @@
 namespace Mairie\MairieBundle\Controller;
 
 use Mairie\MairieBundle\Entity\Etat_civil;
+use Mairie\MairieBundle\Entity\region;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;use Symfony\Component\HttpFoundation\Request;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
+use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\Form\Extension\Core\Type\EntityType;
 
 /**
  * Etat_civil controller.

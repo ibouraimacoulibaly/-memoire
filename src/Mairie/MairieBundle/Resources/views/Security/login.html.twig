@@ -16,11 +16,11 @@ Login - {{ parent() }}
            
             {# <h1 class="text-center login-title">Sign in to continue to Bootsnipp</h1> #}
             <div class="sign-in-head text-center">
-                <h1>hhhhhhh</h1>
+                <h1>Connexion</h1>
             </div>
             <div class="account-wall">
                 
-                <form action="{{ path('login_check') }}" method="post" class="form-signin">
+                <form action="{{ path("security_login_form") }}" method="post" class="form-signin">
                 <input type="text" class="form-control" placeholder="Username" name="_username" value="" required autofocus></br>
                 <input type="password" class="form-control" placeholder="Password" name="_password" required>
                 <button class="btn btn-lg btn-primary btn-block" type="submit">

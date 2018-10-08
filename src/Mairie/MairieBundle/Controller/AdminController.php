@@ -65,7 +65,7 @@ class AdminController extends Controller
             $em = $this->getDoctrine()->getManager();
             $em->persist($admin);
             $em->flush();
-            return $this->redirectToRoute('login');
+            return $this->redirectToRoute('security_login_form');
 
             return $this->redirectToRoute('admin_show', array('id' => $admin->getId()));
         }

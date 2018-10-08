@@ -6,6 +6,10 @@ use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\EmailType;
+use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
+#use Symfony\Component\Form\Extension\Core\Type\EntityType;
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
+use Doctrine\ORM\EntityRepository;
 
 class Etat_civilType extends AbstractType
 {
@@ -19,6 +23,13 @@ class Etat_civilType extends AbstractType
         ->add('addresseEtatCivil')
         ->add('telephone')
         ->add('email', EmailType::class)
+        ->add('region',ChoiceType::class, array(
+            'choices'  => array(
+                '' => '',
+                'kaolack' => 'kaolack','Dakar' => 'Dakar','fatick' => 'fatick','diourbel' => 'Diourbel',
+                'casamance' => 'casamance',
+            ),
+        ))
         ->add('codeAccess');
         
     }/**

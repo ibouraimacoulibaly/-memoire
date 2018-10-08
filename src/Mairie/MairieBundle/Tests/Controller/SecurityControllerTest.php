@@ -13,4 +13,11 @@ class SecurityControllerTest extends WebTestCase
         $crawler = $client->request('GET', '/login');
     }
 
+    public function testLogout()
+    {
+        $client = static::createClient();
+
+        $crawler = $client->request('GET', '/logout');
+    }
+
 }

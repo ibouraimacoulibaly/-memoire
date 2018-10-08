@@ -28,6 +28,16 @@ class region
      * @ORM\Column(name="nom_region", type="string", length=255)
      */
     private $nomRegion;
+     /**
+     
+     * @ORM\OneToMany(targetEntity="Etat_civil", mappedBy="region")
+     */
+    private $etatCivil;
+
+    public function __construct()
+    {
+        $this->etat_civil = new ArrayCollection();
+    }
 
   
 
@@ -63,5 +73,42 @@ class region
     public function getNomRegion()
     {
         return $this->nomRegion;
+    }
+    
+
+    /**
+     * Add etatCivil.
+     *
+     * @param \Mairie\MairieBundle\Entity\Etat_civil $etatCivil
+     *
+     * @return region
+     */
+    public function addEtatCivil(\Mairie\MairieBundle\Entity\Etat_civil $etatCivil)
+    {
+        $this->etatCivil[] = $etatCivil;
+
+        return $this;
+    }
+
+    /**
+     * Remove etatCivil.
+     *
+     * @param \Mairie\MairieBundle\Entity\Etat_civil $etatCivil
+     *
+     * @return boolean TRUE if this collection contained the specified element, FALSE otherwise.
+     */
+    public function removeEtatCivil(\Mairie\MairieBundle\Entity\Etat_civil $etatCivil)
+    {
+        return $this->etatCivil->removeElement($etatCivil);
+    }
+
+    /**
+     * Get etatCivil.
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getEtatCivil()
+    {
+        return $this->etatCivil;
     }
 }

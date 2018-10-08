@@ -3,6 +3,7 @@
 namespace Mairie\MairieBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Doctrine\Common\Collections\ArrayCollection;
 
 /**
  * Etat_civil
@@ -28,6 +29,15 @@ class Etat_civil
      */
     private $nom;
 
+     /**
+     *
+     * * @ORM\Column(name="region", type="string", length=255)
+     */
+    private $region;
+    public function __construct()
+    {
+        $this->region = new ArrayCollection();
+    }
 
     /**
      * @var string
@@ -56,13 +66,7 @@ class Etat_civil
      * @ORM\Column(name="code_access", type="string", length=255)
      */
     private $code_access;
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="password", type="string", length=255)
-     */
-    private $password;
-
+    
 
     /**
      * Get id
@@ -218,4 +222,12 @@ class Etat_civil
     {
         return $this->password;
     }
+    public function __toString(){
+        // to show the name of the Category in the select
+        return $this->region;
+        // to show the id of the Category in the select
+        // return $this->id;
+    }
+
+    
 }

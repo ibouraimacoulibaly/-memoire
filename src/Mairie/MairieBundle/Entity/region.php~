@@ -28,6 +28,16 @@ class region
      * @ORM\Column(name="nom_region", type="string", length=255)
      */
     private $nomRegion;
+     /**
+     
+     * @ORM\OneToMany(targetEntity="Etat_civil", mappedBy="region")
+     */
+    private $etatCivil;
+
+    public function __construct()
+    {
+        $this->etat_civil = new ArrayCollection();
+    }
 
   
 
@@ -64,4 +74,5 @@ class region
     {
         return $this->nomRegion;
     }
+    
 }

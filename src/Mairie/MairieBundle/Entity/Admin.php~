@@ -60,7 +60,7 @@ class Admin implements UserInterface
     /**
      * @var string
      *
-     * @ORM\Column(name="username", type="string", length=255, unique=true)
+     * @ORM\Column(name="username", type="string", length=255, unique=true , nullable=true)
      *
      */
     private $username;
@@ -68,7 +68,7 @@ class Admin implements UserInterface
     /**
      * @var string
      *
-     * @ORM\Column(name="password", type="text")
+     * @ORM\Column(name="password", type="text", nullable=true)
      * @Assert\Length(min=5)
      */
     private $password;
@@ -77,9 +77,9 @@ class Admin implements UserInterface
     /**
      * @var string
      *
-     * @ORM\Column(name="id_etat_civil", type="string", length=255)
+     * @ORM\Column(name="code_etat_civil", type="string", length=255, nullable=true)
      */
-    private $idEtatCivil;
+    private $codeEtatCivil;
 
     /**
      * @ORM\Column(type="string", length=50)
@@ -191,27 +191,27 @@ class Admin implements UserInterface
     }
 
     /**
-     * Set idEtatCivil
+     * Set codeEtatCivil
      *
-     * @param string $idEtatCivil
+     * @param string $codeEtatCivil
      *
      * @return Admin
      */
-    public function setIdEtatCivil($idEtatCivil)
+    public function setCodeEtatCivil($idEtatCivil)
     {
-        $this->idEtatCivil = $idEtatCivil;
+        $this->codeEtatCivil = $codeEtatCivil;
 
         return $this;
     }
 
     /**
-     * Get idEtatCivil
+     * Get codeEtatCivil
      *
      * @return string
      */
-    public function getIdEtatCivil()
+    public function getCodeEtatCivil()
     {
-        return $this->idEtatCivil;
+        return $this->codeEtatCivil;
     }
     public function eraseCredentials(){
 

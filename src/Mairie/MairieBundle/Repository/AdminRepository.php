@@ -10,4 +10,5 @@ namespace Mairie\MairieBundle\Repository;
  */
 class AdminRepository extends \Doctrine\ORM\EntityRepository
 {
+    
 }

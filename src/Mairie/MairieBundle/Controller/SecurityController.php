@@ -1,45 +1,66 @@
 <?php
- 
+/*
+ * This file is part of the Symfony package.
+ *
+ * (c) Fabien Potencier <fabien@symfony.com>
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
+
 namespace Mairie\MairieBundle\Controller;
- 
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
+
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
-use Symfony\Component\HttpFoundation\Request;
-use Symfony\Component\HttpFoundation\Response;
- 
+
+/**
+ * Controller used to manage the application security.
+ * See http://symfony.com/doc/current/cookbook/security/form_login_setup.html.
+ *
+ *
+ */
 class SecurityController extends Controller
 {
- 
-    const AUTHENTICATION_ERROR = \Symfony\Component\Security\Core\Security::AUTHENTICATION_ERROR;
-    const LAST_USERNAME = \Symfony\Component\Security\Core\Security::LAST_USERNAME;
- 
+
     /**
-     * @Route("/login", name="login")
-     * @param Request $request
-     * @return Response
+     * @Route("/login", name="security_login_form")
      */
-    public function loginAction(Request $request)
+    public function loginAction()
     {
-        $session = $request->getSession();
- 
-        // get the login error if there is one
-        if ($request->attributes->has(self::AUTHENTICATION_ERROR)) {
-            $error = $request->attributes->get(
-                self::AUTHENTICATION_ERROR
-            );
-        } else {
-            $error = $session->get(self::AUTHENTICATION_ERROR);
-            $session->remove(self::AUTHENTICATION_ERROR);
-        }
- 
+        $error = $this->get('security.authentication_utils');
+
         return $this->render('@MairieMairie/Security/login.html.twig',
-            array(
-                // last username entered by the user
-                'last_username' => $session->get(self::LAST_USERNAME),
-                'error'         => $error,
-                // ...
-            )
-        );
+                array(
+                // last username entered by the user (if any)
+                'last_username' => $error->getLastUsername(),
+                // last authentication error (if any)
+                'error' => $error->getLastAuthenticationError(),
+        ));
+    }
+
+    /**
+     * This is the route the login form submits to.
+     *
+     * But, this will never be executed. Symfony will intercept this first
+     * and handle the login automatically. See form_login in app/config/security.yml
+     *
+     * @Route("/login_check", name="security_login_check")
+     */
+    public function loginCheckAction()
+    {
+        throw new \Exception('This should never be reached!');
+    }
+
+    /**
+     * This is the route the user can use to logout.
+     *
+     * But, this will never be executed. Symfony will intercept this first
+     * and handle the logout automatically. See logout in app/config/security.yml
+     *
+     * @Route("/logout", name="security_logout")
+     */
+    public function logoutAction()
+    {
+        throw new \Exception('This should never be reached!');
     }
 }

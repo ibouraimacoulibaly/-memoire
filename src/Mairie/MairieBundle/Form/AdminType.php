@@ -35,7 +35,7 @@ class AdminType extends AbstractType
                 'first_options'  => array('label' => 'Password'),
                 'second_options' => array('label' => 'confirmer'),
                 'attr' => array('class' => 'form-control'),))
-        ->add('idEtatCivil',TextType::class);
+        ->add('codeEtatCivil',TextType::class);
     }
     /**
      * {@inheritdoc}

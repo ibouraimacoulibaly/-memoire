@@ -32,7 +32,9 @@
     {% include "@MairieMairie/Default/menu.html.twig" %}
 
     <div class="visible-print col-md-12 text-left"><img src="{{ asset( 'template/img/logo.png' )}}" alt="logo" /></div>
+    
     <section class="wrap">
+    
         <header id="adminbar">
             <div id="logo"><img src="{{ asset( 'template/img/logo.png' )}}" alt="logo" class="img-small"  width="200" height="50"/> <span></span></div>
 
@@ -51,17 +53,19 @@
                     </div>
                     <button type="submit" class="btn btn-default">Rechercher</button>
                 </form>
-
+               
                  <div class="dropdown pull-right user-profile">
-                  <a href="#" id="drop3" role="button" class="dropdown-toggle" data-toggle="dropdown">
-                  <img class="img-small" src="" alt="">
-                   profil<span class="glyphicon glyphicon-chevron-down"></span></a>
+                 
+                  <a href="{{ path('homepage') }}" id="drop3" role="button" class="dropdown-toggle" data-toggle="dropdown">
+                  {{ app.user.prenom }}
+                   {{ app.user.nom }}<span class="glyphicon glyphicon-chevron-down"></span></a>
+
 
                     <ul class="dropdown-menu">
                         <li>
                             <div class="navbar-content">
                                 <div class="row">
-                                {{app.user}}
+                              
                                     <div class="col-md-5">
                                         <img src="" alt="Alternate Text" class="img-responsive" />
                                         <div class="clearfix"></div>
@@ -82,7 +86,7 @@
                                             <a href="" class="btn btn-default btn-sm">Compte</a>
                                         </div>
                                         <div class="col-md-6">
-                                            <a href="" class="btn btn-default btn-sm pull-right">Déconnexion</a>
+                                            <a href="{{ path('security_logout') }}" class="btn btn-default btn-sm pull-right">Déconnexion</a>
                                         </div>
                                     </div>
                                 </div>
@@ -91,6 +95,7 @@
                     </ul>
                 </div>
         </header>
+
 
         <div class="container">
             {% include "@MairieMairie/Default/flashes.html.twig" %}

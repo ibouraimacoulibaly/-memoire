@@ -3,7 +3,7 @@
 {% block body %}
     <h1>Naissances list</h1>
 
-    <table>
+    <table class="table table-striped table-hover">
         <thead>
             <tr>
                 <th>Id</th>
@@ -45,10 +45,10 @@
                 <td>
                     <ul>
                         <li>
-                            <a href="{{ path('naissance_show', { 'id': naissance.id }) }}">show</a>
+                            <a class="btn btn-success" href="{{ path('naissance_show', { 'id': naissance.id }) }}">show</a>
                         </li>
                         <li>
-                            <a href="{{ path('naissance_edit', { 'id': naissance.id }) }}">edit</a>
+                            <a class="btn btn-primary" href="{{ path('naissance_edit', { 'id': naissance.id }) }}">edit</a>
                         </li>
                     </ul>
                 </td>
@@ -59,7 +59,7 @@
 
     <ul>
         <li>
-            <a href="{{ path('naissance_new') }}">Create a new naissance</a>
+            <a class="btn btn-default" href="{{ path('naissance_new') }}">Create a new naissance</a>
         </li>
     </ul>
 {% endblock %}
