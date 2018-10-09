@@ -197,7 +197,7 @@ class Admin implements UserInterface
      *
      * @return Admin
      */
-    public function setCodeEtatCivil($idEtatCivil)
+    public function setCodeEtatCivil($codeEtatCivil)
     {
         $this->codeEtatCivil = $codeEtatCivil;
 

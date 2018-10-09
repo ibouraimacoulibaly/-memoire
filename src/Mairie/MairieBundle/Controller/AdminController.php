@@ -152,4 +152,16 @@ class AdminController extends Controller
             ->getForm()
         ;
     }
+     /**
+     * Deletes a admin entity.
+     *
+     * @Route( name="admin_ajax")
+     * 
+     */
+    public function ajaxAction(Request $request, Admin $admin)
+    {
+       
+        return $this->redirectToRoute('admin_index');
+    }
+
 }

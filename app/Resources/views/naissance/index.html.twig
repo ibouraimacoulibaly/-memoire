@@ -1,26 +1,56 @@
 {% extends "@MairieMairie//layout.html.twig" %}
 
 {% block body %}
-    <h1>Naissances list</h1>
+<h3><span class="glyphicon glyphicon-user"></span>Acte de Naissances</h3>
+<form  id="jsForm" role="form" method="post" action="">
+        <input id="pagenumber" type="hidden" name="searchParam[page]" value="1"> 
+        <input id="sortBy" type="hidden" name="searchParam[sortBy]" value="all"> 
+        <input id="sortDir" type="hidden" name="searchParam[sortDir]" value="ASC"> 
 
-    <table class="table table-striped table-hover">
+        <div class="row hidden-print">
+          <div class="col-md-5 form-group">
+            <div class="input-group">
+              <input type="text" name="searchParam[keyword]" class="form-control" placeholder="Search">
+              <div class="input-group-btn">
+              <button class="btn btn-default" type="submit"><span class="glyphicon glyphicon-search"></span></button>
+              </div><!-- /btn-group -->
+            </div><!-- /input-group -->
+          </div><!-- /.col-md-6 -->
+          <div class="col-md-7">
+            <div class="btn-group pull-right">                       
+              <button class="btn btn-primary "><span class="glyphicon glyphicon-cog"></span>  Selectioner une action</button>
+              <button class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
+                <span class="caret"></span>
+              </button>
+              <ul class="dropdown-menu" role="menu">
+                <li><a href="#" data-toggle="modal" data-target="#searchModal"><span class="glyphicon glyphicon-search"></span> Recherche avancée</a></li>
+                <li><a href="{{ path('naissance_new') }}"><span class="glyphicon glyphicon-plus"></span> Ajouter</a></li>
+
+                <li><a href="#" id="js-delete"><span class="glyphicon glyphicon-trash"></span> Supprimer</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+   
+
+    <table class="table table-striped table-hover table-bordered">
         <thead>
             <tr>
                 <th>Id</th>
                 <th>Nom</th>
                 <th>Prenom</th>
-                <th>Numeroregistre</th>
+                <th>Numero registre</th>
                 <th>Region</th>
                 <th>Departement</th>
                 <th>Commune</th>
-                <th>Etatcivil</th>
-                <th>Datenaissance</th>
-                <th>Lieunaissance</th>
-                <th>Prenompere</th>
-                <th>Prenommere</th>
-                <th>Nommere</th>
-                <th>Prenomso</th>
-                <th>Nomso</th>
+                <th>Etat civil</th>
+                <th>Date naissance</th>
+                <th>Lieu naissance</th>
+                <th>Prenom pere</th>
+                <th>Prenom mere</th>
+                <th>Nom mere</th>
+                <th>Prenom so</th>
+                <th>Nom so</th>
                 <th>Actions</th>
             </tr>
         </thead>
@@ -43,23 +73,16 @@
                 <td>{{ naissance.prenomSO }}</td>
                 <td>{{ naissance.nomSO }}</td>
                 <td>
-                    <ul>
-                        <li>
-                            <a class="btn btn-success" href="{{ path('naissance_show', { 'id': naissance.id }) }}">show</a>
-                        </li>
-                        <li>
-                            <a class="btn btn-primary" href="{{ path('naissance_edit', { 'id': naissance.id }) }}">edit</a>
-                        </li>
-                    </ul>
+                    
+                          
+                        
+                            <a class="btn btn-primary" href="{{ path('naissance_show', { 'id': naissance.id }) }}">details</a>
+                    
                 </td>
             </tr>
         {% endfor %}
         </tbody>
     </table>
 
-    <ul>
-        <li>
-            <a class="btn btn-default" href="{{ path('naissance_new') }}">Create a new naissance</a>
-        </li>
-    </ul>
+    
 {% endblock %}
