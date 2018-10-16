@@ -38,7 +38,7 @@ class Naissance
     /**
      * @var int
      *
-     * @ORM\Column(name="numero_registre", type="integer")
+     * @ORM\Column(name="numero_registre", type="integer", unique=true)
      */
     private $numeroRegistre;
 
@@ -71,7 +71,7 @@ class Naissance
     private $etatCivil;
 
     /**
-     * @var \DateTime
+     * @var string
      *
      * @ORM\Column(name="date_naissance", type="datetime")
      */
@@ -301,7 +301,7 @@ class Naissance
     /**
      * Set dateNaissance.
      *
-     * @param \DateTime $dateNaissance
+     * @param string $dateNaissance
      *
      * @return Naissance
      */
@@ -315,7 +315,7 @@ class Naissance
     /**
      * Get dateNaissance.
      *
-     * @return \DateTime
+     * @return string
      */
     public function getDateNaissance()
     {

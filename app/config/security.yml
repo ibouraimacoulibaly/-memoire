@@ -20,7 +20,7 @@ security:
         main:
             provider: database_users
             # this firewall applies to all URLs
-            pattern: ^/
+           # pattern: ^/
 
             # but the firewall does not require login on every page
             # denying access is done in access_control or in your controllers
@@ -38,7 +38,7 @@ security:
                 # Reference: http://symfony.com/doc/current/cookbook/security/csrf_in_login_form.html
                 #csrf_provider: security.csrf.token_manager
                 
-                default_target_path: homepage
+                default_target_path: welcome
                 always_use_default_target_path: true
             logout:
                 # The route name the user can go to in order to logout
@@ -52,4 +52,7 @@ security:
        - { path: ^/login, roles: IS_AUTHENTICATED_ANONYMOUSLY }
        - { path: ^/mairie/naissance, roles: ROLE_ADMIN }
        - { path: ^/mairie/admin, roles:  ROLE_ADMIN }
-      # - { path: ^/mairie/admin/new, roles: IS_AUTHENTICATED_ANONYMOUSLY }
+       - { path: ^/mairie/mariage/delete, roles:  ROLE_ADMIN }
+       - { path: ^/mairie/mariage/edit, roles:  ROLE_USER }
+
+       - { path: ^/mairie/admin/new, roles: IS_AUTHENTICATED_ANONYMOUSLY }

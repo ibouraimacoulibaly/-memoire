@@ -25,7 +25,7 @@
               </button>
               <ul class="dropdown-menu" role="menu">
                 <li><a href="#" data-toggle="modal" data-target="#searchModal"><span class="glyphicon glyphicon-search"></span> Recherche avancée</a></li>
-                <li><a href="{{ path('admin_new') }}"><span class="glyphicon glyphicon-plus"></span> Ajouter</a></li>
+                <li><a href="{{ path('etat_civil_new') }}"><span class="glyphicon glyphicon-plus"></span> Ajouter</a></li>
 
                 <li><a href="#" id="js-delete"><span class="glyphicon glyphicon-trash"></span> Supprimer</a></li>
               </ul>
@@ -68,10 +68,10 @@
                 <td>{{ etat_civil.email }}</td>
                 <td>
                     
-                            <a class="btn btn-primary" href="{{ path('etat_civil_show', { 'id': etat_civil.id }) }}">show</a>
+                            <a class="btn btn-primary" href="{{ path('etat_civil_show', { 'id': etat_civil.id }) }}">details</a>
                         
                         
-                            <a class="btn btn-success" href="{{ path('etat_civil_edit', { 'id': etat_civil.id }) }}">edit</a>
+                            <a class="btn btn-success" href="{{ path('etat_civil_edit', { 'id': etat_civil.id }) }}">modifier</a>
                       
                 </td>
             </tr>
@@ -79,10 +79,6 @@
         </tbody>
     </table>
 
-    <ul>
-        <li>
-            <a class="btn btn-default" href="{{ path('etat_civil_new') }}">Create a new etat_civil</a>
-        </li>
-    </ul>
+   
     </div>
 {% endblock %}

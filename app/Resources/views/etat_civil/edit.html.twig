@@ -4,7 +4,7 @@
 
 
 <style type="text/css">
-    h5{
+    h3{
         text-align: center;
 
     }
@@ -17,12 +17,17 @@
     #list{
         margin-left: 100px;
     }
+    #delete{
+        margin-left: 100px;
+    }
+    #retour{
+        margin-left: 100px;
+    }
 </style>
 
-<link rel="stylesheet" href="{{ asset('template/bootstrap.min.css') }}" />
-<link rel="stylesheet" href="{{ asset('template/bootstrap.css') }}" />
 
-    <h5>Etat_civil edit</h5>
+
+    <h3>{{ etat_civil.nom }}</h3>
 <div id="container" class="container">
     {{ form_start(edit_form, {'attr': { 'novalidate': 'novalidate'}})  }}
     <div class="form-group">
@@ -52,19 +57,26 @@
         {{ form_errors(edit_form.email) }}
         {{ form_widget(edit_form.email, {'attr': { 'class': 'form-control'}}) }}
     </div>
-       
-        <input class="btn btn-success" type="submit" value="Edit" />
+
+    <div class="form-group">
+        {{ form_label(edit_form.region) }}
+        {{ form_errors(edit_form.region) }}
+        {{ form_widget(edit_form.region, {'attr': { 'class': 'form-control'}}) }}
+    </div>
+        <table>
+        <input class="btn btn-success" type="submit" value="Modifier" />
     {{ form_end(edit_form) }}
 
-    <ul>
-        <li>
-            <a href="{{ path('etat_civil_index') }}">Back to the list</a>
-        </li>
-        <li>
+   
+            <a id="retour" class="btn btn-primary" href="{{ path('etat_civil_index') }}">Retour</a>
+           
+       
+       
             {{ form_start(delete_form) }}
-                <input class="btn btn-danger" type="submit" value="Delete">
+                <input id="delete" class="btn btn-danger" type="submit" value="suprimer">
+
+                 </table>
             {{ form_end(delete_form) }}
-        </li>
-    </ul>
+     
     </div>
 {% endblock %}

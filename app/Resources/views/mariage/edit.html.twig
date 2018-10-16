@@ -1,21 +1,207 @@
 
 {% extends "@MairieMairie//layout.html.twig" %}
 {% block body %}
-    <h1>Mariage edit</h1>
+<style type="text/css">
+    h4{
+        text-align: center;
 
-    {{ form_start(edit_form) }}
+    }
+    #container{
+        width: 700px;
+        margin-left: 300px;
+        border-style: solid;
+    border-width: 3px;
+
+    
+    }
+    #tr{
+        margin-left: 100px;
+    }
+
+
+    
+</style>
+    <h4>Mariage creation</h4>
+
+    <div id="container">
+   
+        
+    {{ form_start(edit_form, {'attr': { 'novalidate': 'novalidate'}}) }}
+
+    
+    <table class="table table-striped table-hover">
+        <thead>
+            <tr>
+ <th><div class="form-group">
+        {{ form_label(edit_form.numero_resgistre) }}
+        {{ form_errors(edit_form.numero_resgistre) }}
+        {{ form_widget(edit_form.numero_resgistre, {'attr': { 'class': 'form-control'}}) }}
+    </div></th>
+
+     <th><div class="form-group">
+        {{ form_label(edit_form.nomEpoux) }}
+        {{ form_errors(edit_form.nomEpoux) }}
+        {{ form_widget(edit_form.nomEpoux, {'attr': { 'class': 'form-control'}}) }}
+    </div></th>
+
+      <th><div class="form-group">
+        {{ form_label(edit_form.prenomEpoux) }}
+        {{ form_errors(edit_form.prenomEpoux) }}
+        {{ form_widget(edit_form.prenomEpoux, {'attr': { 'class': 'form-control'}}) }}
+    </div></th>
+    </tr>
+    </thead>
+
+      <tbody>  
+      <tr>    
+<td> <div class="form-group">
+        {{ form_label(edit_form.region) }}
+        {{ form_errors(edit_form.region) }}
+        {{ form_widget(edit_form.region, {'attr': { 'class': 'form-control'}}) }}
+    </div></td>
+
+    <td> <div class="form-group">
+        {{ form_label(edit_form.prenomEpouse) }}
+        {{ form_errors(edit_form.prenomEpouse) }}
+        {{ form_widget(edit_form.prenomEpouse, {'attr': { 'class': 'form-control'}}) }}
+    </div></td>
+    <td> <div class="form-group">
+        {{ form_label(edit_form.nomEpouse) }}
+        {{ form_errors(edit_form.nomEpouse) }}
+        {{ form_widget(edit_form.nomEpouse, {'attr': { 'class': 'form-control'}}) }}
+    </div></td>
+    </tr>
+     <tr>
+     <td><div class="form-group">
+        {{ form_label(edit_form.dateNaissanceEpoux) }}
+        {{ form_errors(edit_form.dateNaissanceEpoux) }}
+        {{ form_widget(edit_form.dateNaissanceEpoux, {'attr': { 'class': 'form-control'}}) }}
+    </div></td>
+    <td>
+    <div class="form-group">
+        {{ form_label(edit_form.addresseEpoux) }}
+        {{ form_errors(edit_form.addresseEpoux) }}
+        {{ form_widget(edit_form.addresseEpoux, {'attr': { 'class': 'form-control'}}) }}
+    </div></td>
+    <td><div class="form-group">
+        {{ form_label(edit_form.lieuNaissanceEpoux) }}
+        {{ form_errors(edit_form.lieuNaissanceEpoux) }}
+        {{ form_widget(edit_form.lieuNaissanceEpoux, {'attr': { 'class': 'form-control'}}) }}
+    </div></td>
+    </tr>
+     <tr>
+     <td><div class="form-group">
+        {{ form_label(edit_form.dateNaissanceEpouse) }}
+        {{ form_errors(edit_form.dateNaissanceEpouse) }}
+        {{ form_widget(edit_form.dateNaissanceEpouse, {'attr': { 'class': 'form-control'}}) }}
+    </div></td>
+    <td>
+    <div class="form-group">
+        {{ form_label(edit_form.addresseEpouse) }}
+        {{ form_errors(edit_form.addresseEpouse) }}
+        {{ form_widget(edit_form.addresseEpouse, {'attr': { 'class': 'form-control'}}) }}
+    </div></td>
+    <td><div class="form-group">
+        {{ form_label(edit_form.lieuNaissanceEpouse) }}
+        {{ form_errors(edit_form.lieuNaissanceEpouse) }}
+        {{ form_widget(edit_form.lieuNaissanceEpouse, {'attr': { 'class': 'form-control'}}) }}
+    </div></td>
+    </tr>
+    <tr>
+    <td>
+    <div class="form-group">
+        {{ form_label(edit_form.proffessoinEpoux) }}
+        {{ form_errors(edit_form.proffessoinEpoux) }}
+        {{ form_widget(edit_form.proffessoinEpoux, {'attr': { 'class': 'form-control'}}) }}
+    </div></td>
+
+   <td>  <div class="form-group">
+        {{ form_label(edit_form.proffessoinEpouse) }}
+        {{ form_errors(edit_form.proffessoinEpouse) }}
+        {{ form_widget(edit_form.proffessoinEpouse, {'attr': { 'class': 'form-control'}}) }}
+    </div></td>
+    <td>
+    <div class="form-group">
+        {{ form_label(edit_form.dateMariage) }}
+        {{ form_errors(edit_form.dateMariage) }}
+        {{ form_widget(edit_form.dateMariage, {'attr': { 'class': 'form-control'}}) }}
+    </div></td>
+    </tr>
+    <tr><td>
+    <div class="form-group">
+        {{ form_label(edit_form.nomEtPrenomsMere) }}
+        {{ form_errors(edit_form.nomEtPrenomsMere) }}
+        {{ form_widget(edit_form.nomEtPrenomsMere, {'attr': { 'class': 'form-control'}}) }}
+    </div></td>
+     <td><div class="form-group">
+        {{ form_label(edit_form.nomEtPrenomsPere) }}
+        {{ form_errors(edit_form.nomEtPrenomsPere) }}
+        {{ form_widget(edit_form.nomEtPrenomsPere, {'attr': { 'class': 'form-control'}}) }}
+    </div></td>
+    <td><div class="form-group">
+        {{ form_label(edit_form.departement) }}
+        {{ form_errors(edit_form.departement) }}
+        {{ form_widget(edit_form.departement, {'attr': { 'class': 'form-control'}}) }}
+    </div></td>
+    </tr>
+
+
+     <tr><td>
+    <div class="form-group">
+        {{ form_label(edit_form.dateDeclaration) }}
+        {{ form_errors(edit_form.dateDeclaration) }}
+        {{ form_widget(edit_form.dateDeclaration, {'attr': { 'class': 'form-control'}}) }}
+    </div></td>
+     <td><div class="form-group">
+        {{ form_label(edit_form.situationMatrimondiale) }}
+        {{ form_errors(edit_form.situationMatrimondiale) }}
+        {{ form_widget(edit_form.situationMatrimondiale, {'attr': { 'class': 'form-control'}}) }}
+    </div></td>
+    <td><div class="form-group">
+        {{ form_label(edit_form.regimeMatrimondiale) }}
+        {{ form_errors(edit_form.regimeMatrimondiale) }}
+        {{ form_widget(edit_form.regimeMatrimondiale, {'attr': { 'class': 'form-control'}}) }}
+    </div></td>
+    </tr>
+
+     <tr><td>
+    <div class="form-group">
+        {{ form_label(edit_form.commune) }}
+        {{ form_errors(edit_form.commune) }}
+        {{ form_widget(edit_form.commune, {'attr': { 'class': 'form-control'}}) }}
+    </div></td>
+     <td><div class="form-group">
+        {{ form_label(edit_form.nomO) }}
+        {{ form_errors(edit_form.nomO) }}
+        {{ form_widget(edit_form.nomO, {'attr': { 'class': 'form-control'}}) }}
+    </div></td>
+    <td><div class="form-group">
+        {{ form_label(edit_form.lieuMariage) }}
+        {{ form_errors(edit_form.lieuMariage) }}
+        {{ form_widget(edit_form.lieuMariage, {'attr': { 'class': 'form-control'}}) }}
+    </div></td>
+    
+    </tr>
+    
+    
+    
+    
         {{ form_widget(edit_form) }}
-        <input type="submit" value="Edit" />
+        <tr><td>
+        <input  id="tr" class="btn btn-primary" type="submit" value="modifier" /></td>
     {{ form_end(edit_form) }}
 
-    <ul>
-        <li>
-            <a href="{{ path('mariage_index') }}">Back to the list</a>
-        </li>
-        <li>
-            {{ form_start(delete_form) }}
-                <input type="submit" value="Delete">
-            {{ form_end(delete_form) }}
-        </li>
-    </ul>
+    <td>
+            <a class="btn btn-default" href="{{ path('mariage_index') }}">voir la liste des inscrits</a>
+        </td><td>
+        {{ form_start(delete_form) }}
+                <input class="btn btn-danger" type="submit" value="Delete">
+            {{ form_end(delete_form) }}</td>
+        </tr>
+        </tbody>
+        </table>
+
+            
+     </div>
+   
 {% endblock %}

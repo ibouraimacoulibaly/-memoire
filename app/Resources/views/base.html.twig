@@ -1,10 +1,80 @@
 {% extends "@MairieMairie//header.html.twig" %}
 
 {% block body %}
+<style type=text/css>
+#id1{
+  margin-left: 100px;
+}
 
-   
+</style>
+ <div class="container">
 
-    
+      <!-- Jumbotron Header -->
+      <header class="jumbotron my-4">
+        <h1 class="display-3"> Etat Civil au Sénégal</h1>
+        <p class="lead">Bienvenue sur l'application de gestion d'état civil.
+        L'état civil sert à enregistrer certains événements spéciaux qui surviennent dans la vie de la personne. Ex : naissance, mariage, décès…</br>
+          Il permet à l’Etat de faire des prévisions. C’est donc un moyen d'évaluation des besoins de la  population </p>
+        <a href="#" class="btn btn-primary btn-lg">lire plus</a>
+      </header>
+
+      <!-- Page Features -->
+      <div id="id1" class="row text-center">
+
+        <div class="col-lg-3 col-md-6 mb-4">
+          <div class="card">
+            <img class="card-img-top" src="{{ asset('/temp/n.jpeg') }}" alt="">
+            <div class="card-body">
+              <h4 class="card-title">Naissance</h4>
+              <p class="card-text">Il renseigne, d'une part, sur le centre d’enregistrement, le numéro et l’année de l’acte et, le cas échéant sur le numéro, la date et l’année de délivrance du jugement d'autorisation de transcription de l'acte, ainsi que sur les changements intervenus sur le statut de la personne. 
+
+Il renseigne, d'autre part, sur le sexe, le(s) prénom(s) et nom de la personne, sur l’année, la date, l’heure et le lieu de sa naissance et sur sa filiation.</p>
+            </div>
+            <div class="card-footer">
+              <a href="#" class="btn btn-primary">Lire plus</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-3 col-md-6 mb-4">
+          <div class="card">
+            <img class="card-img-top" src="{{ asset('/temp/m.jpeg') }}" alt="">
+            <div class="card-body">
+              <h4 class="card-title">Mariage</h4>
+              <p class="card-text">Le mariage est un lien solennel 
+              de l’homme et de la femme. Selon le code de la famille du Sénégal, le mariage se définit comme un contrat par lequel deux personnes de sexe 
+              opposés décident de s’unir dans le but de fonder une famille.</p>
+            </div>
+            <div class="card-footer">
+              <a href="#" class="btn btn-primary">Lire plus</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-3 col-md-6 mb-4">
+          <div class="card">
+            <img class="card-img-top" src="{{ asset('/temp/d.png') }}" alt="">
+            <div class="card-body">
+              <h4 class="card-title">Décés</h4>
+              <p class="card-text">L’acte de décès est l’article 67 du
+               code de la famille, il marque la fin de la personnalité juridique d’une personne et atteste de la mort d’un 
+              individu. Ainsi, tout décès doit obligatoirement être déclaré a l’état civil.</p>
+            </div>
+            <div class="card-footer">
+              <a href="#" class="btn btn-primary">lire plus</a>
+            </div>
+          </div>
+        </div>
+
+       
+      </div>
+      <!-- /.row -->
+
+    </div>
+    <!-- /.container -->
+
+
+
 
 
 

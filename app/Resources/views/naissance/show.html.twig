@@ -22,6 +22,9 @@
  th{
      margin-left:50px;
  }
+ #di{
+     margin-left:40px;
+ }
  
  
   </style>
@@ -31,23 +34,23 @@
     
     <tr>
      <div id="div1" class="container">
-     <th id="th2">Region DE       :{{ naissance.region }}</br></br> Departement DE : {{ naissance.departement }}</br></br>
-     Commune DE  :{{ naissance.commune }}</th></div>
-       <th>REPUBLIQUE DU SENEGAL</br> un peuple-un but-une foi</br></br></br>ETAT CIVIL</br></br>CENTRE DE(1)</br>{{ naissance.commune }}</th>
+     <th id="th2">  <div id="di">Region DE       :{{ naissance.region }}</br></br> Departement DE : {{ naissance.departement }}</br></br>
+     Commune DE  :{{ naissance.commune }} </div></th></div>
+       <th><div id="di">REPUBLIQUE DU SENEGAL</br> un peuple-un but-une foi</br></br></br>ETAT CIVIL</br></br>CENTRE DE(1)</br>{{ naissance.commune }}</div></th>
          
          
      </thead> </table>
      <table border="1" class="container">
       <thead>
     <tr>
-    <th id="th1">EXTRAIT DU REGISTRE DES ACTES DE NAISSANCE</br>Pour l'année (en lettre)      </br></br>N° dans le Registre (en lettre) </th>
-      <th> </br> AN  {% if naissance.dateNaissance %}{{ naissance.dateNaissance|date('Y-m-d H:i:s') }}{% endif %} </br></br>{{ naissance.numeroRegistre }}</br>(N° dans le registre en chiffre)</th>
+    <th id="th1"> <div id="di">EXTRAIT DU REGISTRE DES ACTES DE NAISSANCE</br>Pour l'année (en lettre)      </br></br>N° dans le Registre (en lettre) </div></th>
+      <th> <div id="di"> </br> AN  {% if naissance.dateNaissance %}{{ naissance.dateNaissance|date('Y-m-d H:i:s') }}{% endif %} </br></br>{{ naissance.numeroRegistre }}</br>(N° dans le registre en chiffre)</div></th>
      <tr>
      
      </table>
          <table border="1" class="container">
           <thead>
-          <tr><th>
+          <tr><th><div id="di">
           Le                                 mill neuf cent     </br> a  heures  minutes né(e)a {{ naissance.lieuNaissance|upper }} (lieu de naissance)</br>
            un enfant de sexe </br>
            ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -58,35 +61,37 @@
              </br><p>et de PRENOMS DE LA MERE:    {{ naissance.prenomMere|upper  }} <strong id="h4"> Nom DE FAMILLE DE LA MERE:</strong>{{ naissance.nomMere|upper }}</p>
              <p>pays de naissance pour les naissances a l'étranger<p>
          
-          </th></tr>
+         </div> </th></tr>
           
            </thead>
           </table>
           <table border="1" class="container">
       <thead>
     <tr>
-      <th> JUGEMENT  </br>D'AUTORISATION  D'INSTRATION </br>(EX SUPPLETIF) </th>
+      <th> <div id="di">JUGEMENT  </br>D'AUTORISATION  D'INSTRATION </br>(EX SUPPLETIF)</div> </th>
      <th> délivré par le juge de Paix ------------------------------  -- </br>
      Le ------------------------------------------------    (en lettre) </br>
      sous le numero ------------------------------------------------------------------(en lettre)</br>
      Incrit le --------------------------------sur le registre des actes de Naissance de l'année</th>
-     <th></br></br>AN -------------</br>(N° dans le registre en chiffre)</br>AN-------------
-           </th>
+     <th><div id="di"></br></br>AN -------------</br>(N° dans le registre en chiffre)</br>AN-------------
+           </div></th>
      <tr>
      </thead>
      </table>
-     <table border="12" class="container">
+     <table border="2" class="container">
       <thead>
     <tr>
-      <p>EXTRAIT DELIVRE PAR LE CENTRE DE  <strong id="h4"> POUR EXTRAIT CERTIF CONFORME </strong></br>
+     <th> <div id="di"><p>EXTRAIT DELIVRE PAR LE CENTRE DE  <strong id="h4"> POUR EXTRAIT CERTIF CONFORME </strong></br>
        {{ naissance.commune }} ---------------------------- <strong id="h4">  A ----------------------------------------------- le ------------------------------- l'Officier d'Etat Civil sousigné 
        </strong></br>(1)(2)(3) Notes et mentions marginales au verso  <strong id="h4"> Prénoms et Nom    {{ naissance.prenom }}  {{ naissance.nom }}  
-         </strong></p>  </th> <tr>
+         </strong></p>  </div></th> <tr>
      </thead>
      </table>
          
          
        </div>
+       </br>
+       </br>
          
          
          

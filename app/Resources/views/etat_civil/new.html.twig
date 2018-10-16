@@ -21,7 +21,7 @@
 
 
     
-    <h5>Etat_civil creation</h5>
+    <h5>créer un éttat civil</h5>
  <div id="container" class="container">
     {{ form_start(form, {'attr': { 'novalidate': 'novalidate'}}) }}
  <div class="form-group">
@@ -58,14 +58,14 @@
     </div>
    
        
-      
+      <table>
         
-        <input id="create" class="btn btn-primary" type="submit" value="Create" />
+        <input id="create" class="btn btn-primary" type="submit" value="Creer" />
     {{ form_end(form) }}
 
     
-            <a id="list" class="btn btn-default" href="{{ path('etat_civil_index') }}">Back to the list</a>
-        
+            <a id="list" class="btn btn-default" href="{{ path('etat_civil_index') }}">retour</a>
+        </table>
    
      </div>
 {% endblock %}

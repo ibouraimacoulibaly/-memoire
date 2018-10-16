@@ -5,6 +5,7 @@ namespace Mairie\MairieBundle\Form;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Component\Form\Extension\Core\Type\DateType;
 
 class DecesType extends AbstractType
 {
@@ -13,7 +14,12 @@ class DecesType extends AbstractType
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder->add('nomDeces')->add('prenomDeces')->add('lieuDeces')->add('dateDeces')->add('age');
+        $builder
+        ->add('nomDeces')
+        ->add('prenomDeces')
+        ->add('lieuDeces')
+        ->add('dateDeces', Datetype::class)
+        ->add('age');
     }/**
      * {@inheritdoc}
      */

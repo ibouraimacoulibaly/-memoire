@@ -1,9 +1,38 @@
 
 {% extends "@MairieMairie//layout.html.twig" %}
 {% block body %}
-    <h1>Mariages list</h1>
+    <h3><span class="glyphicon glyphicon-user"></span>liste des mariage</h3>
+<form  id="jsForm" role="form" method="post" action="">
+        <input id="pagenumber" type="hidden" name="searchParam[page]" value="1"> 
+        <input id="sortBy" type="hidden" name="searchParam[sortBy]" value="all"> 
+        <input id="sortDir" type="hidden" name="searchParam[sortDir]" value="ASC"> 
 
-    <table>
+        <div class="row hidden-print">
+          <div class="col-md-5 form-group">
+            <div class="input-group">
+              <input type="text" name="searchParam[keyword]" class="form-control" placeholder="Search">
+              <div class="input-group-btn">
+              <button class="btn btn-default" type="submit"><span class="glyphicon glyphicon-search"></span></button>
+              </div><!-- /btn-group -->
+            </div><!-- /input-group -->
+          </div><!-- /.col-md-6 -->
+          <div class="col-md-7">
+            <div class="btn-group pull-right">                       
+              <button class="btn btn-primary "><span class="glyphicon glyphicon-cog"></span>  Selectioner une action</button>
+              <button class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
+                <span class="caret"></span>
+              </button>
+              <ul class="dropdown-menu" role="menu">
+                <li><a href="#" data-toggle="modal" data-target="#searchModal"><span class="glyphicon glyphicon-search"></span> Recherche avancée</a></li>
+                <li><a href="{{ path('mariage_new') }}"><span class="glyphicon glyphicon-plus"></span> Ajouter</a></li>
+
+                <li><a href="#" id="js-delete"><span class="glyphicon glyphicon-trash"></span> Supprimer</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+    <table class="table table-striped table-hover table-bordered">
         <thead>
             <tr>
                 <th>Id</th>

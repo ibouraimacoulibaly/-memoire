@@ -1,6 +1,27 @@
 {% extends "@MairieMairie//layout.html.twig" %}
 
 {% block body %}
+
+<style type="text/css">
+    h4{
+        text-align: center;
+
+    }
+    #container{
+        width: 700px;
+        margin-left: 300px;
+        border-style: solid;
+    border-width: 3px;
+
+    
+    }
+    #tr{
+        margin-left: 100px;
+    }
+
+
+    
+</style>
     <h4 id="h4">Naissance creation</h4>
 
      <div id="container">
@@ -15,7 +36,7 @@
         {{ form_widget(form.nom, {'attr': { 'class': 'form-control'}}) }}
     </div></th>
 
-     </th><div class="form-group">
+     <th><div class="form-group">
         {{ form_label(form.prenom) }}
         {{ form_errors(form.prenom) }}
         {{ form_widget(form.prenom, {'attr': { 'class': 'form-control'}}) }}
@@ -87,7 +108,7 @@
     </div></td>
     </tr>
     <tr><td>
-    <div class="form-group">
+    <div  id="tr" class="form-group">
         {{ form_label(form.prenomSO) }}
         {{ form_errors(form.prenomSO) }}
         {{ form_widget(form.prenomSO, {'attr': { 'class': 'form-control'}}) }}
@@ -104,11 +125,11 @@
     
         {{ form_widget(form) }}
         <tr><td>
-        <input class="btn btn-primary" type="submit" value="Create" /></td>
+        <input  id="tr" class="btn btn-primary" type="submit" value="ajouter" /></td>
     {{ form_end(form) }}
 
     <td>
-            <a class="btn btn-default" href="{{ path('naissance_index') }}">Back to the list</a>
+            <a class="btn btn-default" href="{{ path('naissance_index') }}">voir la liste des inscrits</a>
         </td>
         </tr>
         </tbody>

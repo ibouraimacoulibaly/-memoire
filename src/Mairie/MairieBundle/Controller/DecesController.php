@@ -39,7 +39,7 @@ class DecesController extends Controller
      */
     public function newAction(Request $request)
     {
-        $dece = new Dece();
+        $dece = new Deces();
         $form = $this->createForm('Mairie\MairieBundle\Form\DecesType', $dece);
         $form->handleRequest($request);
 

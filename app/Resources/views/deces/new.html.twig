@@ -1,16 +1,64 @@
 {% extends "@MairieMairie//layout.html.twig" %}
 
-{% block body %}
-    <h1>Dece creation</h1>
 
-    {{ form_start(form) }}
-        {{ form_widget(form) }}
-        <input type="submit" value="Create" />
+{% block body %}
+<style type="text/css">
+    h5{
+        text-align: center;
+
+    }
+    #container{width: 500px;
+    background-color: #BAC1C8;
+    }
+    #create{
+        margin-left: 100px;
+    }
+    #list{
+        margin-left: 100px;
+    }
+</style>
+    <h5>Dece creation</h5>
+    <div id="container" class="container">
+    {{ form_start(form, {'attr': { 'novalidate': 'novalidate'}}) }}
+ <div class="form-group">
+        {{ form_label(form.nomDeces) }}
+        {{ form_errors(form.nomDeces) }}
+        {{ form_widget(form.nomDeces, {'attr': { 'class': 'form-control'}}) }}
+    </div>
+
+    <div class="form-group">
+        {{ form_label(form.prenomDeces) }}
+        {{ form_errors(form.prenomDeces) }}
+        {{ form_widget(form.prenomDeces, {'attr': { 'class': 'form-control'}}) }}
+    </div>
+
+      <div class="form-group">
+        {{ form_label(form.lieuDeces) }}
+        {{ form_errors(form.lieuDeces) }}
+        {{ form_widget(form.lieuDeces, {'attr': { 'class': 'form-control'}}) }}
+    </div>
+ <div class="form-group">
+        {{ form_label(form.dateDeces) }}
+        {{ form_errors(form.dateDeces) }}
+        {{ form_widget(form.dateDeces, {'attr': { 'class': 'form-control'}}) }}
+    </div>
+     <div class="form-group">
+        {{ form_label(form.age) }}
+        {{ form_errors(form.age) }}
+        {{ form_widget(form.age, {'attr': { 'class': 'form-control'}}) }}
+    </div>
+   
+       
+      <table>
+        
+        <input id="create" class="btn btn-primary" type="submit" value="Creer" />
     {{ form_end(form) }}
 
-    <ul>
-        <li>
-            <a href="{{ path('deces_index') }}">Back to the list</a>
-        </li>
-    </ul>
+    
+            <a id="list" class="btn btn-default" href="{{ path('etat_civil_index') }}">retour</a>
+        </table>
+   
+     </div>
+
+    
 {% endblock %}

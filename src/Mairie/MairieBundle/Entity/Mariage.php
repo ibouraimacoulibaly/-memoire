@@ -27,6 +27,7 @@ class Mariage
      * @ORM\Column(name="nom_epoux", type="string", length=255)
      */
     private $nomEpoux;
+    
 
     /**
      * @var string
@@ -37,7 +38,7 @@ class Mariage
     /**
      * @var integer
      *
-     * @ORM\Column(name="numero_registre", type="integer")
+     * @ORM\Column(name="numero_registre", type="integer", unique=true)
      */
     private $numero_resgistre;
 

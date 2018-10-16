@@ -27,6 +27,7 @@ class SecurityController extends Controller
      */
     public function loginAction()
     {
+        $this->get('session')->getFlashBag()->add('info', "L'utilisateur a été authentifié avec succès.");
         $error = $this->get('security.authentication_utils');
 
         return $this->render('@MairieMairie/Security/login.html.twig',

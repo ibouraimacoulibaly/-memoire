@@ -62,6 +62,10 @@ class Admin implements UserInterface
      *
      * @ORM\Column(name="username", type="string", length=255, unique=true , nullable=true)
      *
+     *  @Assert\Email(
+     *     message = "The email '{{ value }}' is not a valid email.",
+     *     checkMX = true
+     * )
      */
     private $username;
 
@@ -78,6 +82,7 @@ class Admin implements UserInterface
      * @var string
      *
      * @ORM\Column(name="code_etat_civil", type="string", length=255, nullable=true)
+     * 
      */
     private $codeEtatCivil;
 

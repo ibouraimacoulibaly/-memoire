@@ -5,6 +5,7 @@ namespace Mairie\MairieBundle\Form;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Component\Form\Extension\Core\Type\DateType;
 
 class NaissanceType extends AbstractType
 {
@@ -20,7 +21,7 @@ class NaissanceType extends AbstractType
         ->add('departement')
         ->add('commune')
         ->add('etatCivil')
-        ->add('dateNaissance')
+        ->add('dateNaissance', DateType::class)
         ->add('lieuNaissance')
         ->add('prenomPere')
         ->add('prenomMere')
