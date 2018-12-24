@@ -53,7 +53,7 @@ class AdminController extends Controller
     $admin = new Admin();
     
       $form = $this->createForm('Mairie\MairieBundle\Form\AdminType', $admin);
-      $this->get('session')->getFlashBag()->add('info', "L'utilisateur a été authentifié avec succès.");
+     
         $form->handleRequest($request);
         
         if ($form->isSubmitted() && $form->isValid()) {
@@ -65,7 +65,7 @@ class AdminController extends Controller
             $em = $this->getDoctrine()->getManager();
             $em->persist($admin);
             $em->flush();
-           
+         
             return $this->redirectToRoute('security_login_form');
 
             #return $this->redirectToRoute('admin_show', array('id' => $admin->getId()));
